@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Product } from '../../interfaces/product.interface';
 
 @Component({
   selector: 'app-home-page',
@@ -7,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
-  public products: any[] = [];
+  public products: Product[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -17,7 +18,7 @@ export class HomePageComponent implements OnInit {
 
   fetchProducts(): void {
     this.http
-      .get<any[]>('http://localhost:3000/api/product')
+      .get<Product[]>('http://localhost:3000/api/product')
       .subscribe((data) => {
         this.products = data;
       });
