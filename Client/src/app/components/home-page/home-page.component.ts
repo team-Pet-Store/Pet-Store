@@ -1,20 +1,25 @@
-import { Component, Input } from '@angular/core';
-import { ProductList } from '../product-list/product-list.component';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css'],
 })
-export class HomePageComponent {
-  @Input() items: ProductList[] = [];
-  @Input() currentUser: any;
+export class HomePageComponent implements OnInit {
+  public products: any[] = [];
 
-  // handleSelect(event: any) {
-  // }
+  constructor(private http: HttpClient) {}
 
-  // onSearch(event: any) {
-  // }
+  ngOnInit(): void {
+    this.fetchProducts();
+  }
 
-  // addToCart(userId: number, productId: number) {
-  // }
+  fetchProducts(): void {
+    this.http
+      .get<any[]>('http://localhost:3000/api/product')
+      .subscribe((data) => {
+        this.products = data;
+      });
+  }
 }
