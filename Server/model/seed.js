@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt')
 
 
 
-
 const createAdmin = async () => {
     const password = 'adminadmin'
     const encryptedPassword = await bcrypt.hash(password, 10)

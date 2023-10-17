@@ -223,3 +223,19 @@ a, a:active, a:focus {
 .mt-6, .my-6 {
     margin-top: 3.5rem;
 }
+
+.blog-grid-text .meta-style2 ul li:first-child a {
+    color: gray; /* Set the button text color to gray */
+    background-color: #f5f5f5; /* Set the button background color to light gray */
+}
+
+/* Move the price to the far right */
+.blog-grid-text .meta-style2 ul li:last-child {
+    margin-left: 245px; /* Push it to the right by using 'auto' margin */
+    margin-bottom: 0px;
+}
+
+/* Make the price text red */
+.blog-grid-text .meta-style2 ul li:last-child a {
+    color: red; /* Set the price text color to red */
+}
