@@ -7,18 +7,22 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { CardsComponent } from './components/cards/cards.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    
     NavigationBarComponent,
     LoginComponent,
     SignupComponent,
     CardsComponent,
-    CartComponent
+    CartComponent,
+    ProductListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
