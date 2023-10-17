@@ -1,26 +1,40 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { SignupComponent } from './components/signup/signup.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
-import { HomePageComponent } from './components/home-page/home-page.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { TokenInterceptor } from './service/http-interceptor.service';
+import { userRoutingModule } from './routes/routes';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignupComponent,
+    NavigationBarComponent,
     LoginComponent,
-    HomePageComponent
+    SignupComponent,
+    CardsComponent,
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
+    HttpClientModule,
+    HttpClientModule,
+    userRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
