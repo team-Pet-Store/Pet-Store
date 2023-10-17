@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -10,6 +11,8 @@ import { CardsComponent } from './components/cards/cards.component';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
+import { TokenInterceptor } from './service/http-interceptor.service';
+import { userRoutingModule } from './routes/routes';
 
 
 @NgModule({
@@ -25,10 +28,18 @@ import { ProductsListComponent } from './admin-components/products-list/products
 
   ],
   imports: [
-    BrowserModule,  
-     HttpClientModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    userRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
