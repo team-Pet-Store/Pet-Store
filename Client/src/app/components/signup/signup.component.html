@@ -13,28 +13,28 @@
                                 <h6 class="h5 mb-0">Create an account!</h6>
                                 <p class="text-muted mt-2 mb-4">Enter your details below to create an account and access our website.</p>
 
-                                <form>
-                                    <div class="form-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" class="form-control" id="firstName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" class="form-control" id="lastName">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail">Email address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword">
-                                    </div>
-                                    <button type="submit" class="btn btn-theme">Signup</button>
-                                    <p class="text-muted mt-3">
-                                        Already have an account? <a href="login.html" class="text-primary ml-1">Login</a>
-                                    </p>
-                                </form>
+                                <form (submit)="onSubmit()">
+                                  <div class="form-group">
+                                      <label for="firstName">First Name</label>
+                                      <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" name="firstName">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="lastName">Last Name</label>
+                                      <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail">Email address</label>
+                                      <input type="email" class="form-control" id="exampleInputEmail" [(ngModel)]="email" name="email">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputPassword">Password</label>
+                                      <input type="password" class="form-control" id="exampleInputPassword" [(ngModel)]="password" name="password">
+                                  </div>
+                                  <button type="submit" class="btn btn-theme">Signup</button>
+                                  <p class="text-muted mt-3">
+                                      Already have an account? <a href="login.html" class="text-primary ml-1">Login</a>
+                                  </p>
+                              </form>
                             </div>
                         </div>
 
