@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -12,12 +14,21 @@ import { UsersListComponent } from './admin-components/users-list/users-list.com
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
-import { userRoutingModule } from './routes/routes';
+import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
+    ProductDetailsComponent,
     NavigationBarComponent,
     LoginComponent,
     SignupComponent,
@@ -25,13 +36,22 @@ import { userRoutingModule } from './routes/routes';
     UsersListComponent,
     AdminNavigationBarComponent,
     ProductsListComponent,
+    AdminHomeComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule,
     HttpClientModule,
-    userRoutingModule,
+    AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['*'],
+        disallowedRoutes: [],
+      },
+    }),
   ],
   providers: [
     {
@@ -40,6 +60,6 @@ import { userRoutingModule } from './routes/routes';
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
