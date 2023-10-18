@@ -1,0 +1,19 @@
+.navbar-custom {
+    background-color: black;
+}
+
+.navbar-custom .navbar-brand {
+    color: white;
+}
+
+.navbar-custom .navbar-toggler-icon {
+    background-color: white;
+}
+
+.navbar-custom .nav-link {
+    color: white;
+}
+
+.navbar-custom .fa.fa-paw {
+    color: white;
+}
