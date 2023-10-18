@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
