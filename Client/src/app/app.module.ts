@@ -18,6 +18,9 @@ import { AdminHomeComponent } from './admin-components/admin-home/admin-home.com
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export function tokenGetter() {
@@ -37,6 +40,7 @@ export function tokenGetter() {
     AdminNavigationBarComponent,
     ProductsListComponent,
     AdminHomeComponent,
+    DeleteConfirmationComponent,
 
   ],
   imports: [
@@ -52,6 +56,8 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     {
