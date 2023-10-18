@@ -8,10 +8,10 @@ import { UserService } from './user.service';
 })
 export class UsersListComponent implements OnInit {
   users: any = [];
-  userToDelete: any;
-  isConfirmationModalOpen: boolean = false;
 
-  constructor(private myservice: UserService) {}
+  constructor(
+    private myservice: UserService,
+  ) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,29 +28,14 @@ export class UsersListComponent implements OnInit {
       }
     });
   }
-
- 
-  showDeleteConfirmation(user: any) {
-    this.userToDelete = user;
-    this.isConfirmationModalOpen = true;
-  }
-
-
-  closeConfirmationModal() {
-    this.isConfirmationModalOpen = false;
-  }
-
-
-  deleteUser(userId: number) {
+    deleteUser(userId: number) {
     this.myservice.deleteUser(userId).subscribe({
       next: (data: any) => {
         console.log(`User with ID ${userId} deleted successfully.`);
         this.getUsers();
-        this.closeConfirmationModal(); 
       },
       error: (err: any) => {
         console.log(`Error deleting user with ID ${userId}: ${err}`);
-        this.closeConfirmationModal(); 
       }
     });
   }
