@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 export class CardsComponent implements OnInit {
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
+  public filteredProducts: Product[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -22,6 +23,7 @@ export class CardsComponent implements OnInit {
       .get<Product[]>('http://localhost:3000/api/product')
       .subscribe((data) => {
         this.products = data;
+        this.filteredProducts = this.products;
       });
   }
   openModal(product: Product): void {
