@@ -3,11 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component'
 import { LoginComponent } from './components/login/login.component'
 import {HomePageComponent} from './components/home-page/home-page.component'
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { authGuard } from './service/auth.guard';
+
 
 const routes: Routes = [
-  {path: '', component: HomePageComponent},
+  {path: 'home-page', component: HomePageComponent, canActivate:[authGuard]},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
+  {path : '' ,  component : LandingPageComponent},
 ];
 
 @NgModule({
