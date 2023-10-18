@@ -17,6 +17,6 @@ router.route('/product')
        .get(getAllProducts)
 router.route('/product/:id')
        .put(isAdminAuthenticated, upload.single('imageUrl'), updateProduct)
-       .delete(isAdminAuthenticated, deleteProduct)
+       .delete( deleteProduct)
 
 module.exports = router    
