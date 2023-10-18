@@ -24,7 +24,7 @@ body{
 }
 .account-block .account-testimonial {
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     position: absolute;
     margin: 0 auto;
     padding: 0 1.75rem;
@@ -40,6 +40,49 @@ body{
 .btn-theme {
     background-color: #5369f8;
     border-color: #5369f8;
-    color: #fff;
+    color: #5369f8;
     margin-top: 20px;
+}
+
+/* Add this to your existing CSS */
+/* Elastic Input Styles */
+.form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  border: none; /* Remove the border */
+  border-bottom: 2px solid #5369f8; /* Add a line under the input */
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  transition: all 0.3s;
+  width: 100%;
+  background: transparent; /* Make the background transparent */
+  outline: none;
+}
+
+.form-control:focus {
+  border-bottom-color: #5369f8; /* Change the line color on focus */
+}
+
+/* Add this if you want to change the placeholder text color */
+.form-control::placeholder {
+  color: #5369f8;
+}
+
+/* Button Styles */
+.btn-theme {
+  background-color: transparent;
+  border: #5369f8; /* Remove the button border */
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: all 0.3s;
+  margin-top: 5px;
+}
+
+.btn-theme:hover {
+  background-color: #5369f8;
+  color: #fff;
+  text-decoration: none;
 }
