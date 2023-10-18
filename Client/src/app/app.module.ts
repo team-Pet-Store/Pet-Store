@@ -13,6 +13,7 @@ import { AdminNavigationBarComponent } from './admin-components/admin-navigation
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
 import { userRoutingModule } from './routes/routes';
+import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import { userRoutingModule } from './routes/routes';
     UsersListComponent,
     AdminNavigationBarComponent,
     ProductsListComponent,
+    AdminHomeComponent,
 
   ],
   imports: [
