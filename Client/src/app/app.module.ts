@@ -14,6 +14,7 @@ import { TokenInterceptor } from './service/http-interceptor.service';
 import { userRoutingModule } from './routes/routes';
 
 
+
 @NgModule({
   declarations: [
     
@@ -22,7 +23,8 @@ import { userRoutingModule } from './routes/routes';
     SignupComponent,
     CardsComponent,
     CartComponent,
-    ProductListComponent
+    ProductListComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
