@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+import { GeneralService } from 'src/app/service/genral.service';
 
 @Component({
   selector: 'app-login',
@@ -12,23 +13,27 @@ export class LoginComponent {
   password: string = '';
   loginError: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router , private GeneralService : GeneralService ) { }
 
   onSubmit() {
-    this.authService.login(this.email, this.password).subscribe(
-      (response: any) => {
+    this.authService.login(this.email, this.password).subscribe({
+      next : (response: any) => {
         if(response){
-        this.router.navigate(['homePage']);
+          localStorage.setItem("token" , response.token)
+          localStorage.setItem("role" , response.payload.role)
+          this.GeneralService.token = response.token
+        this.router.navigate(['home-page']);
         }
         console.log(response , "succceddddd")
       },
-      (error: any) => {
+      error :(error: any) => {
         if (error) {
           this.loginError = error.error.message || 'An error occurred during login.';
         } else {
           this.loginError = 'An error occurred during login.';
         }
       }
+    }
     );
   }
 
