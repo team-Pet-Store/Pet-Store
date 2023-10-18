@@ -10,7 +10,7 @@ const { getAllUsers, deleteUser, createProfile, signin, getUserId } = require('.
 router.route('/users')
     .get( getAllUsers)
 router.route('/users/:id')
-    .delete(isAdminAuthenticated, deleteUser)
+    .delete( deleteUser)
 
 
 router.route('/users/signup')

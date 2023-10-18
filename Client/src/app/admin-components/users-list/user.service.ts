@@ -10,12 +10,17 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  getAllUsers(): Observable<any> {
+ 
+ 
+ getAllUsers(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
- 
+  deleteUser(id: number): Observable<any> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete(url);
+  }
+
 
 
 }
-
 
