@@ -13,8 +13,8 @@ export class ProductListComponent implements OnInit {
   products: any=[];
   constructor(
     private myservice:ProductListService, public mainservice :MainServiceService, public http:HttpClient
-    ){ }
-
+   ){ }
+    
 
 ngOnInit():void{
 this.getAllProducts()
@@ -30,5 +30,20 @@ getAllProducts(){
   }
   )
 }
+
+
+
+
+addToCart(userID: number, productID: number): void {
+  this.myservice.addToCart(userID, productID).subscribe({
+    next: (response: any) => {
+      console.log('Product added to cart:', response);
+    },
+   
+  });
+}
+
+
+
 }
 

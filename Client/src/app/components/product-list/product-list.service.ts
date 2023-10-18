@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-
 import { MainServiceService } from "src/app/service/main-service.service"; 
+
 
 
 @Injectable({
@@ -11,12 +11,15 @@ import { MainServiceService } from "src/app/service/main-service.service";
 export class ProductListService{
     products:any =[];
     url=this.mainService.baseUrl+"product"
+    uurl=this.mainService.baseUrl+"carts"
+    
     constructor(private http :HttpClient,public mainService:MainServiceService) {}
     getProducts(){
 this.products=this.http.get(this.url)
 return this.products
     }
-    addToCart(userID,productID){
-        this.http.post(this.url+"/addToCart",userID,productID)
-    }
+    addToCart(userID: number, productID: number){
+        return  this.http.post(`${this.uurl}/${userID}/${productID}`,{});
+      }
+      
 }
