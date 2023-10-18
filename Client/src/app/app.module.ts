@@ -14,6 +14,13 @@ import { UsersListComponent } from './admin-components/users-list/users-list.com
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
+import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -28,7 +35,20 @@ import { TokenInterceptor } from './service/http-interceptor.service';
     AdminNavigationBarComponent,
     ProductsListComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule, userRoutingModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['*'],
+        disallowedRoutes: [],
+      },
+    }),
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
