@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
 import { AppComponent } from './app.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -20,12 +21,14 @@ import { JwtModule } from '@auth0/angular-jwt';
 
 
 export function tokenGetter() {
-  return localStorage.getItem("token");
+  return localStorage.getItem('token');
 }
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomePageComponent,
+    ProductDetailsComponent,
     NavigationBarComponent,
     LoginComponent,
     SignupComponent,
@@ -43,15 +46,12 @@ export function tokenGetter() {
     HttpClientModule,
     AppRoutingModule,
     JwtModule.forRoot({
-      config : {
-        tokenGetter : tokenGetter ,
+      config: {
+        tokenGetter: tokenGetter,
         allowedDomains: ['*'],
         disallowedRoutes: [],
-      }
-    })
-    
-
-    
+      },
+    }),
   ],
   providers: [
     {
@@ -60,6 +60,6 @@ export function tokenGetter() {
       multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
