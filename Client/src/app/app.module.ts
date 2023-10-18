@@ -14,7 +14,6 @@ import { UsersListComponent } from './admin-components/users-list/users-list.com
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
-import { userRoutingModule } from './routes/routes';
 
 @NgModule({
   declarations: [
