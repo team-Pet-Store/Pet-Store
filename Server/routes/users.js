@@ -8,7 +8,7 @@ const isUserAuthenticated = require('../middlewares/isUserAuthenticated')
 const { getAllUsers, deleteUser, createProfile, signin, getUserId } = require('../controllers/users');
 
 router.route('/users')
-    .get(isAdminAuthenticated, getAllUsers)
+    .get( getAllUsers)
 router.route('/users/:id')
     .delete(isAdminAuthenticated, deleteUser)
 

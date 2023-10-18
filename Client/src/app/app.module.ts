@@ -18,6 +18,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
