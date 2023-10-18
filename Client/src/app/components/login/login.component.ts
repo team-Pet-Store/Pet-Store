@@ -22,7 +22,7 @@ export class LoginComponent {
           localStorage.setItem("token" , response.token)
           localStorage.setItem("role" , response.payload.role)
           this.GeneralService.token = response.token
-        this.router.navigate(['home-page']);
+        this.router.navigate(['']);
         }
         console.log(response , "succceddddd")
       },
