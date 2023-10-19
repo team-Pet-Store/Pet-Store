@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
 import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -8,30 +9,34 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent {
-  firstName: string = '';
-  lastName: string = '';
-  email: string = '';
-  password: string = '';
-  signupError: string = '';
+  signupForm!: FormGroup 
+  signupError: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
+    this.signupForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/)]]
+    });
+  }
 
   onSubmit() {
-    this.authService
-      .signup(this.firstName, this.lastName, this.email, this.password)
-      .subscribe({
-        next: (response: any) => {
-          if (response) {
+    if (this.signupForm.valid) {
+      const { firstName, lastName, email, password } = this.signupForm.value;
+      this.authService.signup(firstName, lastName, email, password)
+        .subscribe({
+          next :  (response: any) => {
             this.router.navigate(['/login']);
+          },
+          error :  (error: any) => {
+            if (error.error && error.error.message) {
+              this.signupError = error.error.message;
+            } else {
+              this.signupError = 'An error occurred during registration.';
+            }
           }
-        },
-        error: (error: any) => {
-          if (error) {
-            this.signupError = error.error.message;
-          } else {
-            this.signupError = 'An error occurred during registration.';
-          }
-        },
-      });
+        });
+    }
   }
 }

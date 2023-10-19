@@ -13,7 +13,7 @@ export class LoginComponent {
   password: string = '';
   loginError: string = '';
 
-  constructor(private authService: AuthService, private router: Router , private GeneralService : GeneralService ) { }
+  constructor(private authService: AuthService, private router: Router , private GeneralServices : GeneralService ) { }
 
   onSubmit() {
     this.authService.login(this.email, this.password).subscribe({
@@ -21,16 +21,24 @@ export class LoginComponent {
         if(response){
           localStorage.setItem("token" , response.token)
           localStorage.setItem("role" , response.payload.role)
-          this.GeneralService.token = response.token
-        this.router.navigate(['']);
+          this.GeneralServices.token = response.token
+          console.log(this.GeneralServices.getRole(),"jggkgkjS");
+          
+          if (this.GeneralServices.role === "customer") {
+            this.router.navigate([""]);
+          } else if (this.GeneralServices.role === "admin") {
+            this.router.navigate(['admin-home']);
+          }
+       
+          
         }
         console.log(response , "succceddddd")
       },
       error :(error: any) => {
         if (error) {
-          this.loginError = error.error.message || 'An error occurred during login.';
-        } else {
-          this.loginError = 'An error occurred during login.';
+          this.loginError = error.error.error
+          // console.log(this.loginError);
+          alert(this.loginError )
         }
       }
     }

@@ -22,6 +22,8 @@ export class GeneralService {
   }
   getRole(){
     this.role = localStorage.getItem("role")
+    return this.role
+    
   }
 
   isLoggedIn(): boolean {

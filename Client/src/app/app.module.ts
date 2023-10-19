@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 
@@ -67,6 +67,7 @@ export function tokenGetter() {
     }),
     BrowserAnimationsModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
