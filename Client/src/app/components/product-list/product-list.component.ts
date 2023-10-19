@@ -34,13 +34,17 @@ getAllProducts(){
 
 
 
-addToCart(userID: number, productID: number): void {
-  this.myservice.addToCart(userID, productID).subscribe({
+addToCart( productID: number): void {
+  console.log('trigger')
+  this.myservice.addToCart(productID).subscribe({
     next: (response: any) => {
       console.log('Product added to cart:', response);
     },
-   
-  });
+   error: (err:any)=>{
+      console.log(err)
+    }
+  }
+  );
 }
 
 

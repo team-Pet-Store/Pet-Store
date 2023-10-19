@@ -2,33 +2,31 @@
 <div class="container padding-bottom-3x mb-1">
    
     <!-- Shopping Cart-->
-    <div *ngFor="let item of products" class="table-responsive shopping-cart" style="margin-top: 8rem;">
+    <div class="table-responsive shopping-cart" style="margin-top: 8rem;">
         <table class="table">
             <thead>
                 <tr>
-                    <th>{{item.name}}</th>
+                    <th>Product</th>
+                    <th>Name</th>
                     <th class="text-center">Quantity</th>
-                    <th class="text-center">Subtotal</th>
+                    <th class="text-center">Unit Price </th>
                    
                     <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody *ngFor="let item of products" >
                 <tr>
                     <td>
                         <div class="item-image">
-                            <a class="item-image" href="#"><img src="item.imageUrl" alt="Product"></a>
+                            <a class="item-image" href="#"><img src="{{item.imageUrl}}" alt="Product"></a>
                            
                         </div>
                     </td>
+                    <td class="text-center text-lg text-medium">{{item.name}}</td>
                     <td class="text-center">
                         <div class="count-input">
-                            <select class="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
+                            <select class="form-control" [(ngModel)]="item.quantity" (change)="onSelect()">
+                            <option *ngFor="let quantity of quantityOptions" [value]="quantity">{{ quantity }}</option>
                             </select>
                         </div>
                     </td>
@@ -49,8 +47,9 @@
         <div class="column">
            
         </div>
-        <div class="column text-lg">Subtotal: <span class="text-medium">$289.68</span></div>
+        <div class="column text-lg">Subtotal: <span class="text-medium">{{subtotal}}</span></div>
     </div>
+    
     <div class="shopping-cart-footer">
         <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
 

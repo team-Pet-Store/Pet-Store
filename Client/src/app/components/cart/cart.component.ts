@@ -10,23 +10,31 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CartComponent implements OnInit {
   products: any[]=[];
-  userID:number=1;
+  quantityOptions: number[] = [1, 2, 3, 4, 5];
+  subtotal=0;
+ 
   constructor(
     private myservice:CartService, public mainservice :MainServiceService, public http:HttpClient
   ){ }
    ngOnInit():void{
-    this.getCartProducts(this.userID)
+    this.getCartProducts()
     }
-    getCartProducts(userID: number): void {
-      this.myservice.getCartProducts(userID).subscribe(
-        (response: any) => {
+    onSelect(): void {
+      this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+      // Your logic here with the selected quantity and item index
+    }
+    getCartProducts(): void {
+      this.myservice.getCartProducts().subscribe({
+        next:(response: any) => {
           console.log('products:', response);
-          this.products = response; 
+          this.products = response.map((elem:any)=>({...elem,quantity:1})); 
+          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+
         },
-        (error) => {
+        error:(error:any) => {
           console.error('Error fetching cart products:', error);
         }
-      );
+      });
     }
   }
 

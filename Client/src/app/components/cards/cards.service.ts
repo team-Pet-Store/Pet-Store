@@ -8,7 +8,7 @@ import { MainServiceService } from "src/app/service/main-service.service";
     providedIn:'root'
 })
 
-export class ProductListService{
+export class CardService{
     products:any =[];
     url=this.mainService.baseUrl+"product"
     uurl=this.mainService.baseUrl+"carts"

@@ -16,8 +16,8 @@ export class CartService{
     
     constructor(private http :HttpClient,public mainService:MainServiceService) {}
    
-      getCartProducts(userID: number):Observable<any> {
-       return  this.http.get(`${this.Url}/${userID}`,{})
+      getCartProducts():Observable<any> {
+       return  this.http.get(this.Url,{})
        
       }
 }
