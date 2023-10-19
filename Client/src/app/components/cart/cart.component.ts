@@ -63,10 +63,10 @@ export class CartComponent implements OnInit {
     removeAllFromCart(): void {
       this.myservice.removeAllFromCart().subscribe({
         next: (response: any) => {
-          // Clear the products array
+          
           this.products = [];
     
-          // Reset subtotal to 0
+       
           this.subtotal = 0;
         },
         error: (error) => {

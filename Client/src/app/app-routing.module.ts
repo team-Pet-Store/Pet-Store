@@ -6,6 +6,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 // import { authGuard } from './service/auth.guard';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ChekoutComponent } from './components/chekout/chekout.component';
 // import { adminGuard } from './service/admin.guard';
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   {path : 'admin-home', component : AdminHomeComponent, } ,
-  {path:'cart', component:CartComponent}
+  {path:'cart', component:CartComponent},
+  {path:'checkout',component:ChekoutComponent},
 ];
 // canActivate:[adminGuard]
 @NgModule({

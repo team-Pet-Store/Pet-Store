@@ -1,20 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { GeneralService } from 'src/app/service/genral.service';
 
 @Component({
   selector: 'app-navigation-bar',
   templateUrl: './navigation-bar.component.html',
-  styleUrls: ['./navigation-bar.component.css']
+  styleUrls: ['./navigation-bar.component.css'],
 })
 export class NavigationBarComponent {
-  constructor(public GeneralServices :GeneralService, public AuthServices :AuthService ){}
-  ngOnInit(): void {
+  @Output() categorySelected = new EventEmitter<{
+    animal: string;
+    category: string;
+  }>();
+  @Output() searchQuery = new EventEmitter<string>();
+  searchedValue = '';
+  constructor(
+    public generalServices: GeneralService,
+    public authService: AuthService
+  ) {}
+  ngOnInit(): void {}
+  onCategorySelected(animal: string, category: string): void {
+    this.categorySelected.emit({ animal, category });
   }
-  logout(){
-    return this.AuthServices.logout()
+  onSearch() {
+    this.searchQuery.emit(this.searchedValue);
+  }
+  logout() {
+    return this.authService.logout();
   }
   isLoggedIn(): boolean {
-    return this.GeneralServices.isLoggedIn();
+    return this.generalServices.isLoggedIn();
   }
 }
