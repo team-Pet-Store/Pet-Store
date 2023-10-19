@@ -60,8 +60,8 @@ export class CartComponent implements OnInit {
         }
       });
     }
-    removeAllFromCart(id: number): void {
-      this.myservice.removeFromCart(id).subscribe({
+    removeAllFromCart(): void {
+      this.myservice.removeAllFromCart().subscribe({
         next: (response: any) => {
           // Clear the products array
           this.products = [];

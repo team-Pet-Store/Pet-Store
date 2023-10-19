@@ -23,7 +23,7 @@ export class CartService{
       removeFromCart(productID:number):Observable<any>{
         return this.http.delete(`${this.Url}/${productID}`,{})
       }
-      removeAllFromCart(id:number):Observable<any>{
-        return this.http.delete(`${this.Url}/${id}`,{})
+      removeAllFromCart():Observable<any>{
+        return this.http.delete(`${this.Url}`,{})
       }
 }

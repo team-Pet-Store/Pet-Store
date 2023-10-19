@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-import { AppComponent } from './app.component';
+
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -24,6 +24,8 @@ import { DeleteConfirmationComponent } from './components/delete-confirmation/de
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
+import { ChekoutComponent } from './components/chekout/chekout.component';
+import { AppComponent } from './app.component';
 
 
 export function tokenGetter() {
@@ -46,6 +48,7 @@ export function tokenGetter() {
     AdminHomeComponent,
     DeleteConfirmationComponent,
     DeleteCartComponent,
+    ChekoutComponent,
 
   ],
   imports: [

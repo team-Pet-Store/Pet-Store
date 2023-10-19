@@ -55,10 +55,10 @@ module.exports = {
         }
     },
     removeAllFromCart: async (req, res) => {
-        const { id } = req.params
+        const { userId } = req.user
         try {
 
-            const user = await User.findByPk(id);
+            const user = await User.findByPk(userId);
 
             if (!user) {
                 return res.status(404).json({ error: 'Product not found' });
