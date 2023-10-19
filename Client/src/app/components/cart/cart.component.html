@@ -11,7 +11,10 @@
                     <th class="text-center">Quantity</th>
                     <th class="text-center">Unit Price </th>
                    
-                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                    <th class="text-center">
+                        <button (click)="removeAllFromCart(items.id)" class="btn btn-sm btn-outline-danger" >Clear Cart
+                        </button>
+                    </th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of products" >
@@ -32,7 +35,11 @@
                     </td>
                     <td class="text-center text-lg text-medium">{{item.price}}</td>
                    
-                    <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+                    <td class="text-center">
+                        <button   (click)="openDeleteConfirmation(item.id)" class="remove-from-cart"  data-toggle="tooltip" title="" data-original-title="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
                 </tr>
              
                     

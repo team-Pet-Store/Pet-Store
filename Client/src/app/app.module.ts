@@ -23,6 +23,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
 
 
 export function tokenGetter() {
@@ -44,6 +45,7 @@ export function tokenGetter() {
     ProductListComponent,
     AdminHomeComponent,
     DeleteConfirmationComponent,
+    DeleteCartComponent,
 
   ],
   imports: [
