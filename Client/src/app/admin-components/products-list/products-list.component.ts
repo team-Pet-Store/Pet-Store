@@ -47,7 +47,6 @@ export class ProductsListComponent implements OnInit {
   }
   openModal() {
     this.modalRef = this.modalService.open(AddProductsComponent, {
-      data: { title: 'Custom title' },
     });
   }
 
