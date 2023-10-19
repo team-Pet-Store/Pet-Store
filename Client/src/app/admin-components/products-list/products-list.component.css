@@ -1,0 +1,86 @@
+.item-image {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    overflow: hidden;
+  }
+  
+  .item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-product {
+   padding-top: 50px;
+  }
+
+  .button-product{
+    padding-top: 20px;
+  }
+  .black-btn {
+    background-color: #000; /* Set the background color to black */
+    color: #fff; /* Set the text color to white */
+    border-color: #000; /* Set the border color to black */
+  }
+  
+  .black-btn:hover {
+    background-color: #333; /* Change the background color on hover */
+    border-color: #333; /* Change the border color on hover */
+  }
+
+  body{margin-top:20px;
+    background:#eee;
+    }
+    .card {
+        box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
+    }
+    .avatar.sm {
+        width: 2.25rem;
+        height: 2.25rem;
+        font-size: .818125rem;
+    }
+    .table-nowrap .table td, .table-nowrap .table th {
+        white-space: nowrap;
+    }
+    .table>:not(caption)>*>* {
+        padding: 0.75rem 1.25rem;
+        border-bottom-width: 1px;
+    }
+    table th {
+        font-weight: 600;
+        background-color: #eeecfd !important;
+    }
+
+    body{margin-top:20px;}
+
+    .button-35 {
+      align-items: center;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+      box-sizing: border-box;
+      color: #121212;
+      cursor: pointer;
+      display: inline-flex;
+      flex: 1 1 auto;
+      font-family: Inter,sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1;
+      margin: 0;
+      outline: none;
+      padding: 1rem 1.2rem;
+      text-align: center;
+      text-decoration: none;
+      transition: box-shadow .2s,-webkit-box-shadow .2s;
+      white-space: nowrap;
+      border: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    
+    .button-35:hover {
+      box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+    }
