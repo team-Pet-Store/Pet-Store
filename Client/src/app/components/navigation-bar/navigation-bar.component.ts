@@ -18,8 +18,6 @@ export class NavigationBarComponent {
   ) {}
   ngOnInit(): void {}
   onCategorySelected(animal: string, category: string): void {
-    console.log('Selected Animal:', animal);
-    console.log('Selected Category:', category);
     this.categorySelected.emit({ animal, category });
   }
   logout() {
