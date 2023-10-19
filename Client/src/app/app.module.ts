@@ -14,7 +14,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
-import { ProductsListComponent } from './admin-components/products-list/products-list.component';
+
 import { TokenInterceptor } from './service/http-interceptor.service';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { RouterModule } from '@angular/router';
@@ -22,14 +22,12 @@ import { RouterModule } from '@angular/router';
 
 import { MdbModalService, MdbModalRef } from 'mdb-angular-ui-kit/modal';
 
-
+import { CartComponent } from './components/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { DeleteConfirmationComponent } from './admin-components/delete-confirmation/delete-confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
-import { AddProductsComponent } from './admin-components/add-products/add-products.component';
 
 
 export function tokenGetter() {
@@ -47,12 +45,9 @@ export function tokenGetter() {
     CardsComponent,
     UsersListComponent,
     AdminNavigationBarComponent,
-    ProductsListComponent,
+    CartComponent,
     AdminHomeComponent,
     DeleteConfirmationComponent,
-    DeleteProductsConfirmationComponent,
-    AddProductsComponent,
-
 
   ],
   imports: [

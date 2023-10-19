@@ -12,6 +12,8 @@ module.exports = isAuthenticated = (req, res, next) => {
     else {
         jwt.verify(token, process.env.jwt_Secret, (err, user) => {
             if (!err) {
+                console.log(user)
+                req.user=user
                 next()
             }
             if (err) {

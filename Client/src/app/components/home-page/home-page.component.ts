@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent {
-  constructor() {}
+  public selectedCategory: { animal: string; category: string } | null = null;
+  public searchTerm: string | '' = '';
+
+  onCategorySelected(event: { animal: string; category: string }): void {
+    if (event.animal === '' && event.category === '') {
+      this.selectedCategory = null;
+    } else {
+      this.selectedCategory = event;
+    }
+  }
+
+  onSearch(query: string): void {
+    this.searchTerm = query;
+  }
 }
