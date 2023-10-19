@@ -2,7 +2,7 @@
 <div class="container padding-bottom-3x mb-1">
    
     <!-- Shopping Cart-->
-    <div class="table-responsive shopping-cart" style="margin-top: 8rem;">
+    <div class="table-responsive shopping-cart" style="margin-top: 8rem;" >
         <table class="table">
             <thead>
                 <tr>
@@ -11,7 +11,10 @@
                     <th class="text-center">Quantity</th>
                     <th class="text-center">Unit Price </th>
                    
-                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                    <th class="text-center">
+                        <button (click)="removeAllFromCart()" class="btn btn-sm btn-outline-danger" >Clear Cart
+                        </button>
+                    </th>
                 </tr>
             </thead>
             <tbody *ngFor="let item of products" >
@@ -32,7 +35,11 @@
                     </td>
                     <td class="text-center text-lg text-medium">{{item.price}}</td>
                    
-                    <td class="text-center"><a class="remove-from-cart" href="#" data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+                    <td class="text-center">
+                        <button   (click)="openDeleteConfirmation(item.id)" class="remove-from-cart"  data-toggle="tooltip" title="" data-original-title="Remove item">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </td>
                 </tr>
              
                     
@@ -51,7 +58,10 @@
     </div>
     
     <div class="shopping-cart-footer">
-        <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+        <div class="column"><button class="btn btn-outline-secondary"  routerLink="/checkout"  ><i class="icon-arrow-left"></i>&nbsp;check out </button></div>
+        <div class="column" ><a class="btn btn-outline-secondary" href="#"><i  id="center"></i>&nbsp;Back to Shopping</a></div>
+      
 
     </div>
+    
 </div>
