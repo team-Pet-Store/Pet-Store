@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteConfirmationComponent } from 'src/app/admin-components/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-users-list',
@@ -9,9 +11,7 @@ import { UserService } from './user.service';
 export class UsersListComponent implements OnInit {
   users: any = [];
 
-  constructor(
-    private myservice: UserService,
-  ) { }
+  constructor(private myservice: UserService, private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -28,7 +28,8 @@ export class UsersListComponent implements OnInit {
       }
     });
   }
-    deleteUser(userId: number) {
+
+  deleteUser(userId: number) {
     this.myservice.deleteUser(userId).subscribe({
       next: (data: any) => {
         console.log(`User with ID ${userId} deleted successfully.`);
@@ -36,6 +37,16 @@ export class UsersListComponent implements OnInit {
       },
       error: (err: any) => {
         console.log(`Error deleting user with ID ${userId}: ${err}`);
+      }
+    });
+  }
+
+  openDeleteConfirmation(userId: number): void {
+    const dialogRef = this.dialog.open(DeleteConfirmationComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.deleteUser(userId); 
       }
     });
   }
