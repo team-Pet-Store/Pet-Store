@@ -14,9 +14,11 @@ import { UsersListComponent } from './admin-components/users-list/users-list.com
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
+import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -34,6 +36,8 @@ export function tokenGetter() {
     UsersListComponent,
     AdminNavigationBarComponent,
     ProductsListComponent,
+    AdminHomeComponent,
+
   ],
   imports: [
     BrowserModule,

@@ -27,4 +27,9 @@ export class AuthService {
 
     return this.http.post(`${this.apiUrl}signin`, userData, httpOptions);
   }
+
+  logout (){
+   const clear =  localStorage.clear()
+   return clear
+  }
 }

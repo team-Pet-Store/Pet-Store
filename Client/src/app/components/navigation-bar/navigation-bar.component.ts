@@ -1,4 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { AuthService } from 'src/app/service/auth.service';
+import { GeneralService } from 'src/app/service/genral.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -6,12 +8,24 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./navigation-bar.component.css'],
 })
 export class NavigationBarComponent {
-  @Output() categorySelected: EventEmitter<{
+  @Output() categorySelected = new EventEmitter<{
     animal: string;
     category: string;
-  }> = new EventEmitter();
-
+  }>();
+  constructor(
+    public generalServices: GeneralService,
+    public authService: AuthService
+  ) {}
+  ngOnInit(): void {}
   onCategorySelected(animal: string, category: string): void {
+    console.log('Selected Animal:', animal);
+    console.log('Selected Category:', category);
     this.categorySelected.emit({ animal, category });
+  }
+  logout() {
+    return this.authService.logout();
+  }
+  isLoggedIn(): boolean {
+    return this.generalServices.isLoggedIn();
   }
 }

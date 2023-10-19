@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 
@@ -8,10 +8,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./cards.component.css'],
 })
 export class CardsComponent implements OnInit {
+  @Input() selectedCategory: { animal: string; category: string } | null = null;
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
-  public filteredProducts: Product[] = [];
-
+  @Input() filteredProducts: Product[] = [];
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
@@ -26,6 +26,23 @@ export class CardsComponent implements OnInit {
         this.filteredProducts = this.products;
       });
   }
+  ngOnChanges(): void {
+    this.filterProducts();
+  }
+
+  filterProducts(): void {
+    if (this.selectedCategory) {
+      const { animal, category } = this.selectedCategory;
+      this.filteredProducts = this.products.filter(
+        (product) =>
+          product.animal.toLowerCase() === animal.toLowerCase() &&
+          product.category.toLowerCase() === category.toLowerCase()
+      );
+    } else {
+      this.filteredProducts = this.products;
+    }
+  }
+
   openModal(product: Product): void {
     this.selectedProduct = product;
     this.toggleModal();
