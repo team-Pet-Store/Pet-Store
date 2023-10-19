@@ -11,9 +11,10 @@ import { CardService } from './cards.service';
 })
 export class CardsComponent implements OnInit {
   @Input() selectedCategory: { animal: string; category: string } | null = null;
+  @Input() searchTerm: string = '';
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
-  @Input() filteredProducts: Product[] = [];
+  public filteredProducts: Product[] = [];
   constructor(
     private myservice: CardService,
     public mainservice: MainServiceService,
@@ -42,6 +43,10 @@ export class CardsComponent implements OnInit {
         (product) =>
           product.animal.toLowerCase() === animal.toLowerCase() &&
           product.category.toLowerCase() === category.toLowerCase()
+      );
+    } else if (this.searchTerm) {
+      this.filteredProducts = this.filteredProducts.filter((product) =>
+        product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     } else {
       this.filteredProducts = this.products;

@@ -1,4 +1,3 @@
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
 
 <div class="container">
@@ -14,19 +13,15 @@
             <p class="display-30">{{product.description.substring(0, 93)}}...</p>
             <div class="meta meta-style2">
               <ul>
-               
+
                 <li><a href="#!">${{product.price}}</a></li>
               </ul>
               <ul>
-                <li><button (click)="addToCart(product.id)" class="btn btn-theme" >Add to Cart</button></li>
+                <li><button class="checkout-button" >Add to cart</button></li>
               </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  
-
-  
+  </div >
