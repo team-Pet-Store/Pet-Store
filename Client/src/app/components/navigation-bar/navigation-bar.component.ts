@@ -12,6 +12,8 @@ export class NavigationBarComponent {
     animal: string;
     category: string;
   }>();
+  @Output() searchQuery = new EventEmitter<string>();
+  searchedValue = '';
   constructor(
     public generalServices: GeneralService,
     public authService: AuthService
@@ -19,6 +21,9 @@ export class NavigationBarComponent {
   ngOnInit(): void {}
   onCategorySelected(animal: string, category: string): void {
     this.categorySelected.emit({ animal, category });
+  }
+  onSearch() {
+    this.searchQuery.emit(this.searchedValue);
   }
   logout() {
     return this.authService.logout();
