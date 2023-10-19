@@ -18,12 +18,10 @@ import { AdminHomeComponent } from './admin-components/admin-home/admin-home.com
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
-import { ProductListComponent } from './components/product-list/product-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -41,10 +39,8 @@ export function tokenGetter() {
     UsersListComponent,
     AdminNavigationBarComponent,
     CartComponent,
-    ProductListComponent,
     AdminHomeComponent,
     DeleteConfirmationComponent,
-
   ],
   imports: [
     BrowserModule,

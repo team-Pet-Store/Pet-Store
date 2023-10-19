@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePageComponent {
   public selectedCategory: { animal: string; category: string } | null = null;
+  public searchTerm: string | '' = '';
 
   onCategorySelected(event: { animal: string; category: string }): void {
     if (event.animal === '' && event.category === '') {
@@ -14,5 +15,9 @@ export class HomePageComponent {
     } else {
       this.selectedCategory = event;
     }
+  }
+
+  onSearch(query: string): void {
+    this.searchTerm = query;
   }
 }
