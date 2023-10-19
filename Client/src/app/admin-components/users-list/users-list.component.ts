@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { MatDialog } from '@angular/material/dialog';
-import { DeleteConfirmationComponent } from 'src/app/components/delete-confirmation/delete-confirmation.component';
+import { DeleteConfirmationComponent } from 'src/app/admin-components/delete-confirmation/delete-confirmation.component';
 
 @Component({
   selector: 'app-users-list',
