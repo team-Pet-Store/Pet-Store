@@ -12,12 +12,17 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
-import { ProductsListComponent } from './admin-components/products-list/products-list.component';
+
 import { TokenInterceptor } from './service/http-interceptor.service';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
+import { ProductListComponent } from './components/product-list/product-list.component';
+import { CartComponent } from './components/cart/cart.component';
+import { DeleteConfirmationComponent } from './components/delete-confirmation/delete-confirmation.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 export function tokenGetter() {
@@ -35,8 +40,10 @@ export function tokenGetter() {
     CardsComponent,
     UsersListComponent,
     AdminNavigationBarComponent,
-    ProductsListComponent,
+    CartComponent,
+    ProductListComponent,
     AdminHomeComponent,
+    DeleteConfirmationComponent,
 
   ],
   imports: [
@@ -52,6 +59,8 @@ export function tokenGetter() {
         disallowedRoutes: [],
       },
     }),
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
   providers: [
     {

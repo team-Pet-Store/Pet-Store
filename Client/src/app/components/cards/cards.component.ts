@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
+import { MainServiceService } from 'src/app/service/main-service.service';
+import { CardService } from './cards.service';
 
 @Component({
   selector: 'app-cards',
@@ -12,7 +14,11 @@ export class CardsComponent implements OnInit {
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
   @Input() filteredProducts: Product[] = [];
-  constructor(private http: HttpClient) {}
+  constructor(
+    private myservice: CardService,
+    public mainservice: MainServiceService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.fetchProducts();
@@ -56,5 +62,16 @@ export class CardsComponent implements OnInit {
     } else {
       document.body.classList.remove('active-modal');
     }
+  }
+  addToCart(productID: number): void {
+    console.log('trigger');
+    this.myservice.addToCart(productID).subscribe({
+      next: (response: any) => {
+        console.log('Product added to cart:', response);
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
   }
 }
