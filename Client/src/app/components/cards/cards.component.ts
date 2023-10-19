@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MainServiceService } from 'src/app/service/main-service.service';
 import { CardService } from './cards.service';
 
+
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
