@@ -22,11 +22,14 @@ export class LoginComponent {
           localStorage.setItem("token" , response.token)
           localStorage.setItem("role" , response.payload.role)
           this.GeneralServices.token = response.token
-          if(this.GeneralServices.role === "admin"){
+          console.log(this.GeneralServices.getRole(),"jggkgkjS");
+          
+          if (this.GeneralServices.role === "customer") {
+            this.router.navigate([""]);
+          } else if (this.GeneralServices.role === "admin") {
             this.router.navigate(['admin-home']);
-          }else {
-            this.router.navigate(['']);
           }
+       
           
         }
         console.log(response , "succceddddd")
