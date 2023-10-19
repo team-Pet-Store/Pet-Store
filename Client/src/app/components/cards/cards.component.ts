@@ -13,16 +13,15 @@ export class CardsComponent implements OnInit {
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
 
-  constructor(private myservice:CardService, public mainservice :MainServiceService,http: HttpClient) {}
+  constructor(private myservice:CardService, public mainservice :MainServiceService, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.fetchProducts();
   }
 
   fetchProducts(): void {
-    this.http
-      .get<Product[]>('http://localhost:3000/api/product')
-      .subscribe((data) => {
+    this.http.get<Product[]>('http://localhost:3000/api/product')
+      .subscribe((data : any) => {
         this.products = data;
       });
   }
