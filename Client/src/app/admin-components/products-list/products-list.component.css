@@ -53,97 +53,34 @@
 
     body{margin-top:20px;}
 
-.modal[data-modal-color] {
-  color: #fff;
-}
-
-.modal .modal-header {
-  padding: 23px 26px;
-  border-bottom: 1px solid transparent;
-}
-
-.modal .modal-content {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.31);
-  border-radius: 3px;
-  border: 0;
-}
-
-.modal-footer {
-  padding: 15px;
-  text-align: right;
-  border-top: 1px solid transparent;
-}
-
-.modal[data-modal-color] .modal-footer {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.modal[data-modal-color] .modal-footer .btn-link {
-  font-weight: 400;
-}
-
-.modal[data-modal-color] .modal-title, .modal[data-modal-color] .modal-footer .btn-link {
-  color: #fff;
-}
-
-.modal .modal-footer .btn-link {
-  font-size: 14px;
-  color: #000;
-  font-weight: 500;
-}
-
-.btn-link {
-  color: #797979;
-  text-decoration: none;
-  border-radius: 2px;
-}
-
-.modal[data-modal-color] .modal-footer .btn-link:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-  text-decoration:none;
-}
-
-.modal[data-modal-color] .modal-footer .btn-link {
-  font-weight: 400;
-}
-
-/* ========== MODAL COLORS ===============================*/
-.modal[data-modal-color="blue"] .modal-content {
-  background: #2196f3;
-}
-
-.modal[data-modal-color="lightblue"] .modal-content {
-  background: #03a9f4;
-}
-
-.modal[data-modal-color="cyan"] .modal-content {
-  background: #00bcd4;
-}
-
-.modal[data-modal-color="green"] .modal-content {
-  background: #4caf50;
-}
-
-.modal[data-modal-color="lightgreen"] .modal-content {
-  background: #8bc34a;
-}
-
-.modal[data-modal-color="red"] .modal-content {
-  background: #f44336;
-}
-
-.modal[data-modal-color="amber"] .modal-content {
-  background: #ffc107;
-}
-
-.modal[data-modal-color="orange"] .modal-content {
-  background: #ff9800;
-}
-
-.modal[data-modal-color="teal"] .modal-content {
-  background: #009688;
-}
-
-.modal[data-modal-color="bluegray"] .modal-content {
-  background: #607d8b;
-}
+    .button-35 {
+      align-items: center;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+      box-sizing: border-box;
+      color: #121212;
+      cursor: pointer;
+      display: inline-flex;
+      flex: 1 1 auto;
+      font-family: Inter,sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      justify-content: center;
+      line-height: 1;
+      margin: 0;
+      outline: none;
+      padding: 1rem 1.2rem;
+      text-align: center;
+      text-decoration: none;
+      transition: box-shadow .2s,-webkit-box-shadow .2s;
+      white-space: nowrap;
+      border: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    
+    .button-35:hover {
+      box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+    }
