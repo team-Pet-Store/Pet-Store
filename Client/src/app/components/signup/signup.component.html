@@ -7,34 +7,46 @@
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="mb-5">
-                                    <h3 class="h4 font-weight-bold text-theme"><i class="fa fa-paw" aria-hidden="true"></i>Signup</h3>
+                                    <h3 class="h4 font-weight-bold text-theme"><i class="fa fa-paw" aria-hidden="true"></i> Signup</h3>
                                 </div>
 
                                 <h6 class="h5 mb-0">Create an account!</h6>
                                 <p class="text-muted mt-2 mb-4">Enter your details below to create an account and access our website.</p>
 
-                                <form (submit)="onSubmit()">
+                                <form (submit)="onSubmit()" [formGroup]="signupForm" novalidate>
                                   <div class="form-group">
                                       <label for="firstName">First Name</label>
-                                      <input type="text" class="form-control" id="firstName" [(ngModel)]="firstName" name="firstName">
+                                      <input type="text" class="form-control" id="firstName" formControlName="firstName">
+                                      <div *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched" class="text-danger">
+                                        First Name is required.
+                                      </div>
                                   </div>
                                   <div class="form-group">
                                       <label for="lastName">Last Name</label>
-                                      <input type="text" class="form-control" id="lastName" [(ngModel)]="lastName" name="lastName">
+                                      <input type="text" class="form-control" id="lastName" formControlName="lastName">
+                                      <div *ngIf="signupForm.get('lastName')?.invalid && signupForm.get('lastName')?.touched" class="text-danger">
+                                        Last Name is required.
+                                      </div>
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputEmail">Email address</label>
-                                      <input type="email" class="form-control" id="exampleInputEmail" [(ngModel)]="email" name="email">
+                                      <input type="email" class="form-control" id="exampleInputEmail" formControlName="email">
+                                      <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched" class="text-danger">
+                                        Please enter a valid email address.
+                                      </div>
                                   </div>
                                   <div class="form-group">
                                       <label for="exampleInputPassword">Password</label>
-                                      <input type="password" class="form-control" id="exampleInputPassword" [(ngModel)]="password" name="password">
+                                      <input type="password" class="form-control" id="exampleInputPassword" formControlName="password">
+                                      <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched" class="text-danger">
+                                        Password is required and must meet the criteria(Minimum eight characters, at least one letter and one number)
+                                      </div>
                                   </div>
                                   <button type="submit" class="btn btn-theme">Signup</button>
                                   <p class="text-muted mt-3">
                                       Already have an account? <a routerLink="/login" class="text-primary ml-1">Login</a>
                                   </p>
-                              </form>
+                                </form>
                             </div>
                         </div>
 
@@ -50,16 +62,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <!-- end card-body -->
             </div>
             <!-- end card -->
-
-
-
-            <!-- end row -->
-
         </div>
         <!-- end col -->
     </div>
