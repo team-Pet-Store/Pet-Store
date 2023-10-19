@@ -27,9 +27,8 @@ export class CardsComponent implements OnInit {
   }
 
   fetchProducts(): void {
-    this.http
-      .get<Product[]>('http://localhost:3000/api/product')
-      .subscribe((data) => {
+    this.http.get<Product[]>('http://localhost:3000/api/product')
+      .subscribe((data : any) => {
         this.products = data;
         this.filteredProducts = this.products;
       });

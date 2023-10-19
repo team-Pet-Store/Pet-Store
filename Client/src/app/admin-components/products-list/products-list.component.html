@@ -1,60 +1,52 @@
-<div class="container">
-    <div class="card">
+  <div class="container">
+    <button class="button-35" role="button" style="margin-top: 6rem; margin-left: 1rem;" (click)="openModal()">Add products +</button>
     <div class="row">
-            <div class="col-xl-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="table-responsive px-3">
-                                <table class="table table-striped align-middle table-nowrap">
-                                    <tbody>
-                                        
-                                        <tr>
-                                            <td>
-                                                <div class="avatar-lg me-4"  style="width: 220px; ">
-                                                    <img src="https://petproducts.com/cdn/shop/products/55614.jpg?v=1676532821&width=700" class="img-fluid rounded" alt="">
-                                                </div>
-                                            </td>
-    
-                                            <td>
-                                                <div>
-                                                    <h5 class="font-size-18"><a class="text-dark">Titan Easy-On Pinch Training Collar</a></h5>
-                                                </div>
-                                            </td>
-    
-                                            <td>
-                                                <ul class="list-unstyled ps-0 mb-0">
-                                                    <li><p class="text-muted mb-1 text-truncate"><i class="mdi mdi-circle-medium align-middle text-primary me-1"></i> The Titan Easy-On Prong Training Collar is the perfect tough,</p></li>
-                                                </ul>
-                                            </td>
-    
-                                            <td style="width: 180px;">
-                                            </td>
-    
-                                            <td style="width: 220px;">
-            
-                                            </td>    
-                                            <td>
-                                                <div class="dropdown float-end">
-                                                    <a class="text-muted dropdown-toggle font-size-20" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
-                                                        <i class="bx bx-dots-horizontal-rounded"></i>
-                                                    </a>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">Edit</a>
-                                                        <a class="dropdown-item" href="#">Action</a>
-                                                        <a class="dropdown-item" href="#">Remove</a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-12 mb-3 mb-lg-5">
+            <div class="overflow-hidden card table-nowrap table-card " style="margin-top: 6rem;">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Product list</h5>
+                    <a><i class="fa fa-paw" aria-hidden="true"></i></a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead class="small text-uppercase bg-body text-muted">
+                            <tr>
+                                <th>PRODUCT IMAGE</th>
+                                <th>PRODUCT NAME</th>
+                                <th>PRODUCT DESCRIPTION</th>
+                                <th>ITEM PRICE</th>
+                                <th class="text-end">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="align-middle" *ngFor="let product of products">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <img [src]="product.imageUrl" alt="{{ product.name }}" class="item-image" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="h6 mb-0 lh-1">{{ product.name }}</td>
+                                <td>
+                                    <span class="d-inline-block align-middle">{{ product.description.substring(0, 50) }}...</span>
+                                </td>
+                                <td>
+                                    <span class="d-inline-block align-middle">${{ product.price }}</span>
+                                </td>
+                                <td class="button-product">
+                                    <button class="btn black-btn btn-sm mx-1" title="Update" type="submit">
+                                      <i class="bi bi-pen"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm mx-1" title="Delete Item" type="button" (click)="openDeleteConfirmation(product.id)">
+                                      <i class="bi bi-trash"></i>
+                                    </button>
+                                  </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
