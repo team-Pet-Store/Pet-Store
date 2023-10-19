@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { Product } from '../../interfaces/product.interface';
 
 @Component({
@@ -8,4 +9,5 @@ import { Product } from '../../interfaces/product.interface';
 })
 export class ProductDetailsComponent {
   @Input() selectedProduct!: Product;
+  constructor(public modalRef: MdbModalRef<ProductDetailsComponent>) {}
 }
