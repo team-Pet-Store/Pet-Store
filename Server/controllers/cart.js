@@ -2,12 +2,12 @@ const { User, Product } = require("../model")
 
 module.exports = {
     getCartItems: async (req, res) => {
-        const { id } = req.params
+        const { userId } = req.user
         try {
             const result = await Product.findAll({
                 include: {
                     model: User,
-                    where: { id: id },
+                    where: { id: userId },
                 },
             });
             res.status(200).json(result);
@@ -17,9 +17,10 @@ module.exports = {
         }
     },
     addToCart: async (req, res) => {
-        const { userID, productID } = req.params
+        const {userId}=req.user
+        const { productID } = req.params
         try {
-            const user = await User.findByPk(userID);
+            const user = await User.findByPk(userId);
             const product = await Product.findByPk(productID);
 
             if (!user || !product) {

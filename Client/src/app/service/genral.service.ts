@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   providedIn: 'root'
 })
 export class GeneralService {
-   token!:any
+   token!: any
    role!:any
   constructor(private jwtHelper : JwtHelperService) {
     this.getToken()
@@ -22,5 +22,9 @@ export class GeneralService {
   }
   getRole(){
     this.role = localStorage.getItem("role")
+  }
+
+  isLoggedIn(): boolean {
+    return localStorage.getItem('token') !== null;
   }
 }
