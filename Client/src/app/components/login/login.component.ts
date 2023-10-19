@@ -33,9 +33,9 @@ export class LoginComponent {
       },
       error :(error: any) => {
         if (error) {
-          this.loginError = error.error.message || 'An error occurred during login.';
-        } else {
-          this.loginError = 'An error occurred during login.';
+          this.loginError = error.error.error
+          // console.log(this.loginError);
+          alert(this.loginError )
         }
       }
     }

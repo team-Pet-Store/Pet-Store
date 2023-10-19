@@ -24,7 +24,7 @@
         <p class="display-30">{{ product.description.substring(0, 93) }}...</p>
         <ul>
           <li>${{ product.price }}</li>
-          <li><button class="checkout-button">Add to cart</button></li>
+          <li><button (click)="addToCart(product.id)" class="checkout-button">Add to cart</button></li>
         </ul>
       </div>
     </div>
