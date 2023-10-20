@@ -1,13 +1,17 @@
 .navbar-custom {
     background-color: black;
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .navbar-custom .navbar-brand {
     color: white;
+    font-size: 21px;
 }
 
 .navbar-custom .navbar-toggler-icon {
     background-color: white;
+
 }
 
 .navbar-custom .nav-link {
@@ -17,3 +21,13 @@
 .navbar-custom .fa.fa-paw {
     color: white;
 }
+
+.navbar-custom .navbar-brand i {
+    font-size: 30px;
+  }
+  
+  /* Increase the icon size for the search button */
+  .navbar-custom .btn-base svg {
+    width: 100px;
+    height: 28px;
+  }

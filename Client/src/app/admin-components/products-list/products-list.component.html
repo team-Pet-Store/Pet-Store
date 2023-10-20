@@ -1,5 +1,8 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <div class="container">
-    <button class="button-35" role="button" style="margin-top: 6rem; margin-left: 1rem;" (click)="openModal()">Add products +</button>
+    <button class="button-35" role="button" style="margin-top: 6rem; margin-left: 1rem;" (click)="openModal()">Add
+        products +</button>
     <div class="row">
         <div class="col-12 mb-3 mb-lg-5">
             <div class="overflow-hidden card table-nowrap table-card " style="margin-top: 6rem;">
@@ -29,24 +32,35 @@
                                 </td>
                                 <td class="h6 mb-0 lh-1">{{ product.name }}</td>
                                 <td>
-                                    <span class="d-inline-block align-middle">{{ product.description.substring(0, 50) }}...</span>
+                                    <span class="d-inline-block align-middle">{{ product.description.substring(0, 50)
+                                        }}...</span>
                                 </td>
                                 <td>
                                     <span class="d-inline-block align-middle">${{ product.price }}</span>
                                 </td>
                                 <td class="button-product">
-                                    <button class="btn black-btn btn-sm mx-1" title="Update" type="submit">
-                                      <i class="bi bi-pen"></i>
+                                    <button class="btn black-btn btn-sm mx-1" title="Update" type="submit"
+                                        (click)="openUpdateModal(product)">
+                                        <i class="bi bi-pen"></i>
                                     </button>
-                                    <button class="btn btn-danger btn-sm mx-1" title="Delete Item" type="button" (click)="openDeleteConfirmation(product.id)">
-                                      <i class="bi bi-trash"></i>
+                                    <button class="btn btn-danger btn-sm mx-1" title="Delete Item" type="button"
+                                        (click)="openDeleteConfirmation(product.id)">
+                                        <i class="bi bi-trash"></i>
                                     </button>
-                                  </td>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div *ngIf="modal" class="modal-container">
+    <div class="modal-content-custom">
+        <app-update-product *ngIf="selectedProduct" [selectedProduct]="selectedProduct"
+            (cancelUpdateEvent)="cancelUpdate()" (updateProductEvent)="updateProduct($event)">
+        </app-update-product>
     </div>
 </div>
