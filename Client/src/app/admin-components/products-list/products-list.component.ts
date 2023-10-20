@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductsConfirmationComponent } from '../delete-products-confirmation/delete-products-confirmation.component';
 import { AddProductsComponent } from '../add-products/add-products.component';
-import { UpdateProductComponent } from '../update-product/update-product.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
@@ -64,20 +63,13 @@ export class ProductsListComponent implements OnInit {
 
   toggleModal(): void {
     this.modal = !this.modal;
-    if (this.modal) {
-      document.body.classList.add('active-modal');
-    } else {
-      document.body.classList.remove('active-modal');
-    }
   }
   cancelUpdate(): void {
     this.toggleModal();
-    // Additional logic if needed
   }
 
   updateProduct(updatedProduct: Product): void {
-    // Logic to update the product
+    this.fetchProducts();
     this.toggleModal();
-    // Additional logic if needed
   }
 }
