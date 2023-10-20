@@ -12,7 +12,9 @@
         <p class="display-30 productDesc">{{ product.description}}</p>
         <ul>
           <li>${{ product.price }}</li>
-          <li><button (click)="addToCart(product.id)" class="checkout-button">Add to cart</button></li>
+        
+         <li><button (click)="addToCart(product.id)" class="checkout-button">Add to cart</button></li>
+         <div class="badge" *ngIf="showPlusOne">+1</div>
         </ul>
       </div>
     </div>

@@ -18,6 +18,7 @@ export class CardsComponent implements OnInit {
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
   public filteredProducts: Product[] = [];
+  showPlusOne = false;
 
   constructor(
     private myservice: CardService,
@@ -76,12 +77,19 @@ export class CardsComponent implements OnInit {
     this.myservice.addToCart(productID).subscribe({
       next: (response: any) => {
         console.log('Product added to cart:', response);
+        this.showPlusOne = true;
       
       },
       error: (err: any) => {
         console.log(err);
       },
     });
+   onShow(productID){
+    setTimeout(() => {
+      this.showPlusOne = false;
+    }, 1000);
+  }
+
   }
   
 
