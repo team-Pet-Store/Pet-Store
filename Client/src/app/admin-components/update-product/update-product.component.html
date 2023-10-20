@@ -1,0 +1,52 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+            <button type="button" class="btn-close" aria-label="Close" (click)="cancelUpdate()"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Product Name</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="selectedProduct.name"
+                        required />
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Product Description</label>
+                    <textarea class="form-control" id="description" name="description"
+                        [(ngModel)]="selectedProduct.description" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Product Price</label>
+                    <input type="number" class="form-control" id="price" name="price"
+                        [(ngModel)]="selectedProduct.price" required />
+                </div>
+                <div class="mb-3">
+                    <label for="animal" class="form-label">Select Animal Type</label>
+                    <select class="form-select" id="animal" name="animal" required>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Select Category</label>
+                    <select class="form-select" id="category" name="category" required>
+                        <option value="Dog">Food</option>
+                        <option value="Cat">Toy</option>
+                        <option value="Cat">Upholstery</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">Update the Product Image</label>
+                    <input type="file" class="form-control" id="imageUrl" name="imageUrl"
+                        (change)="handleImage($event)" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-lg btn-primary px-3" (click)="cancelUpdate()">CANCEL</button>
+            <button class="btn btn-lg btn-primary px-3" (click)="updateProduct()">UPDATE</button>
+        </div>
+    </div>
+</div>
