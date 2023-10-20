@@ -20,4 +20,10 @@ export class CartService{
        return  this.http.get(this.Url,{})
        
       }
+      removeFromCart(productID:number):Observable<any>{
+        return this.http.delete(`${this.Url}/${productID}`,{})
+      }
+      removeAllFromCart():Observable<any>{
+        return this.http.delete(`${this.Url}`,{})
+      }
 }

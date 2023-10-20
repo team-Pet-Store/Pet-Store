@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from './cart.service';       
 import { MainServiceService } from 'src/app/service/main-service.service';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteCartComponent } from '../delete-cart/delete-cart.component';
 
 @Component({
   selector: 'app-cart',
@@ -14,14 +16,14 @@ export class CartComponent implements OnInit {
   subtotal=0;
  
   constructor(
-    private myservice:CartService, public mainservice :MainServiceService, public http:HttpClient
+    private myservice:CartService, public mainservice :MainServiceService, public http:HttpClient , private dialog: MatDialog
   ){ }
    ngOnInit():void{
     this.getCartProducts()
     }
     onSelect(): void {
       this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
-      // Your logic here with the selected quantity and item index
+
     }
     getCartProducts(): void {
       this.myservice.getCartProducts().subscribe({
@@ -36,6 +38,43 @@ export class CartComponent implements OnInit {
         }
       });
     }
+    removeFromCart(productID: number): void {
+      this.myservice. removeFromCart(productID).subscribe({
+        next:(response:any) => {
+         
+          this.products = this.products.filter((product) => product.id !== productID);
+          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+        },
+       error: (error) => {
+        
+          console.error('Error deleting product:', error);
+        }
+    });
+    }
+    openDeleteConfirmation(productID: number): void {
+      const dialogRef = this.dialog.open(DeleteCartComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === true) {
+          this.removeFromCart(productID); 
+        }
+      });
+    }
+    removeAllFromCart(): void {
+      this.myservice.removeAllFromCart().subscribe({
+        next: (response: any) => {
+          
+          this.products = [];
+    
+       
+          this.subtotal = 0;
+        },
+        error: (error) => {
+          console.error('Error deleting products:', error);
+        }
+      });
+    }
+    
   }
 
       
