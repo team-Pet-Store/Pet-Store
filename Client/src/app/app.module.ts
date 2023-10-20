@@ -20,7 +20,6 @@ import { RouterModule } from '@angular/router';
 
 
 import { MdbModalService, MdbModalRef } from 'mdb-angular-ui-kit/modal';
-import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';

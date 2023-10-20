@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service'
+
 
 @Component({
   selector: 'app-admin-navigation-bar',
@@ -8,11 +10,11 @@ import { Router } from '@angular/router';
 })
 export class AdminNavigationBarComponent {
 
-    constructor(private router: Router){}
+    constructor(private router: Router , public authService: AuthService){}
 
   logout(){
-   localStorage.clear()
-  // return this.router.navigate(["login"])
+    this.authService.logout()
+    this.router.navigate([""])
 }
 
 }
