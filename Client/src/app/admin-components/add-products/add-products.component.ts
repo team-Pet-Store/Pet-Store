@@ -14,7 +14,7 @@ export class AddProductsComponent {
 
   constructor(
     public modalRef: MdbModalRef<AddProductsComponent>,
-    private authService: AuthService,
+    private authServices: AuthService,
     private formBuilder: FormBuilder
   ) {
   
@@ -38,7 +38,7 @@ export class AddProductsComponent {
   onSubmit() {
     if (this.productForm.valid) {
       const productData = this.productForm.value;
-      this.authService.createProduct(productData, productData.imageUrl)
+      this.authServices.createProduct(productData, productData.imageUrl)
         .subscribe((response) => {
         
         });
