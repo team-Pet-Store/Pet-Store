@@ -4,6 +4,8 @@ import { MainServiceService } from "src/app/service/main-service.service";
 
 
 
+
+
 @Injectable({
     providedIn:'root'
 })
@@ -21,5 +23,5 @@ return this.products
     addToCart( productID: number){
         return  this.http.post(`${this.uurl}/${productID}`,{});
       }
-      
+     
 }
