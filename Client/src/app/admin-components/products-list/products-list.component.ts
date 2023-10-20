@@ -14,6 +14,8 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class ProductsListComponent implements OnInit {
   modalRef: MdbModalRef<AddProductsComponent> | null = null;
   public products: Product[] = [];
+  public selectedProduct: Product | null = null;
+  public modal = false;
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
@@ -52,5 +54,22 @@ export class ProductsListComponent implements OnInit {
   }
   openModal() {
     this.modalRef = this.modalService.open(AddProductsComponent, {});
+  }
+
+  openUpdateModal(product: Product) {
+    this.selectedProduct = product;
+    this.toggleModal();
+  }
+
+  toggleModal(): void {
+    this.modal = !this.modal;
+  }
+  cancelUpdate(): void {
+    this.toggleModal();
+  }
+
+  updateProduct(updatedProduct: Product): void {
+    this.fetchProducts();
+    this.toggleModal();
   }
 }
