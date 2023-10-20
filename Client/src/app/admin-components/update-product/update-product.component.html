@@ -1,0 +1,54 @@
+<div class="modal-overlay">
+    <div class="modal-content">
+
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Update Product</h5>
+            <button type="button" class="btn-close" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                    <label for="productName" class="form-label">Product Name</label>
+                    <input type="text" class="form-control" id="productName" name="productName" required />
+                </div>
+                <div class="mb-3">
+                    <label for="productDescription" class="form-label">Product Description</label>
+                    <textarea class="form-control" id="productDescription" name="productDescription"
+                        required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="productPrice" class="form-label">Product Price</label>
+                    <input type="number" class="form-control" id="productPrice" name="productPrice" required />
+                </div>
+                <div class="mb-3">
+                    <label for="animalType" class="form-label">Select Animal Type</label>
+                    <select class="form-select" id="animalType" name="animalType" required>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="animalType" class="form-label">Select Category</label>
+                    <select class="form-select" id="animalType" name="animalType" required>
+                        <option value="Dog">Food</option>
+                        <option value="Cat">Toy</option>
+                        <option value="Cat">Upholstery</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="productImage" class="form-label">Update the Product Image</label>
+                    <input type="file" class="form-control" id="productImage" name="productImage" />
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">
+                Close
+            </button>
+            <button type="button" class="btn btn-primary">
+                Update
+            </button>
+
+        </div>
+    </div>
+</div>
