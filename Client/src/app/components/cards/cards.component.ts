@@ -4,7 +4,6 @@ import { HttpClient } from '@angular/common/http';
 import { MainServiceService } from 'src/app/service/main-service.service';
 import { CardService } from './cards.service';
 
-
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -27,8 +26,9 @@ export class CardsComponent implements OnInit {
   }
 
   fetchProducts(): void {
-    this.http.get<Product[]>('http://localhost:3000/api/product')
-      .subscribe((data : any) => {
+    this.http
+      .get<Product[]>('http://localhost:3000/api/product')
+      .subscribe((data: any) => {
         this.products = data;
         this.filteredProducts = this.products;
       });
@@ -46,7 +46,7 @@ export class CardsComponent implements OnInit {
           product.category.toLowerCase() === category.toLowerCase()
       );
     } else if (this.searchTerm) {
-      this.filteredProducts = this.filteredProducts.filter((product) =>
+      this.filteredProducts = this.products.filter((product) =>
         product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
       );
     } else {
