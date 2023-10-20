@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteProductsConfirmationComponent } from '../delete-products-confirmation/delete-products-confirmation.component';
 import { AddProductsComponent } from '../add-products/add-products.component';
+import { UpdateProductComponent } from '../update-product/update-product.component';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 
 @Component({
@@ -14,6 +15,8 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 export class ProductsListComponent implements OnInit {
   modalRef: MdbModalRef<AddProductsComponent> | null = null;
   public products: Product[] = [];
+  public selectedProduct: Product | null = null;
+  public modal = false;
   constructor(
     private http: HttpClient,
     private dialog: MatDialog,
@@ -52,5 +55,29 @@ export class ProductsListComponent implements OnInit {
   }
   openModal() {
     this.modalRef = this.modalService.open(AddProductsComponent, {});
+  }
+
+  openUpdateModal(product: Product) {
+    this.selectedProduct = product;
+    this.toggleModal();
+  }
+
+  toggleModal(): void {
+    this.modal = !this.modal;
+    if (this.modal) {
+      document.body.classList.add('active-modal');
+    } else {
+      document.body.classList.remove('active-modal');
+    }
+  }
+  cancelUpdate(): void {
+    this.toggleModal();
+    // Additional logic if needed
+  }
+
+  updateProduct(updatedProduct: Product): void {
+    // Logic to update the product
+    this.toggleModal();
+    // Additional logic if needed
   }
 }
