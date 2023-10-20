@@ -6,8 +6,8 @@ export const adminGuard: CanActivateFn = (route, state) => {
   const genral = inject(GeneralService)
   const router = inject(Router)
 
-  if(genral.role !== 'admin'){
-    // console.log(genral.role, 'fjbqhfdiio')
+  if(genral.role !== 'admin' ){
+    console.log(genral.role, 'fjbqhfdiio')
     router.navigate([''])
     return false
   }

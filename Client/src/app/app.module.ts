@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
@@ -14,21 +12,22 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
-
+import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { TokenInterceptor } from './service/http-interceptor.service';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { RouterModule } from '@angular/router';
 
-
 import { MdbModalService, MdbModalRef } from 'mdb-angular-ui-kit/modal';
-import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtModule } from '@auth0/angular-jwt';
 import { DeleteConfirmationComponent } from './admin-components/delete-confirmation/delete-confirmation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
+import { ChekoutComponent } from './components/chekout/chekout.component';
 import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
+import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -49,8 +48,10 @@ export function tokenGetter() {
     AdminHomeComponent,
     DeleteConfirmationComponent,
     ProductsListComponent,
-    DeleteProductsConfirmationComponent
-
+    DeleteCartComponent,
+    ChekoutComponent,
+    DeleteProductsConfirmationComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,17 +68,16 @@ export function tokenGetter() {
     }),
     BrowserAnimationsModule,
     MatDialogModule,
+    ReactiveFormsModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-      
     },
-    MdbModalService
+    MdbModalService,
   ],
   bootstrap: [AppComponent],
- 
 })
 export class AppModule {}
