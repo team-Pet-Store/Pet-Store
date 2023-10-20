@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
@@ -29,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
 import { ChekoutComponent } from './components/chekout/chekout.component';
 import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
+import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 
 
 export function tokenGetter() {
@@ -49,10 +49,10 @@ export function tokenGetter() {
     CartComponent,
     AdminHomeComponent,
     DeleteConfirmationComponent,
-
     DeleteCartComponent,
     ChekoutComponent,
-    DeleteProductsConfirmationComponent
+    DeleteProductsConfirmationComponent,
+    ProductsListComponent
 
 
   ],

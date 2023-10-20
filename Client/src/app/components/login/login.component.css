@@ -1,226 +1,92 @@
-body{margin-top:20px;}
-.blog-grid {
-    position: relative;
-    box-shadow: 0 1rem 1.75rem 0 rgba(45, 55, 75, 0.1);
-    height: 100%;
-    border: 0.0625rem solid rgba(220, 224, 229, 0.6);
-    border-radius: 0.25rem;
-    transition: all .2s ease-in-out;
-    height: 100%
+body{
+  margin-top:20px;
+  background-color: black;
 }
+.account-block {
+  padding: 0;
+  background-image: url(https://4kwallpapers.com/images/wallpapers/golden-retriever-scottish-breed-dog-pet-dog-5k-768x1024-9108.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  position: relative;
 
-.blog-grid span {
-    color: #292dc2
-}
-
-.blog-grid img {
-    width: 100%;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem
-}
-
-.blog-grid-text {
-    position: relative
-}
-
-.blog-grid-text>span {
-    color: #292dc2;
-    font-size: 13px;
-    padding-right: 5px
-}
-
-.blog-grid-text h4 {
-    line-height: normal;
-    margin-bottom: 15px
-}
-
-.blog-grid-text .meta-style2 {
-    border-top: 1px dashed #cee1f8;
-    padding-top: 15px
-}
-
-.blog-grid-text .meta-style2 ul li {
-    margin-bottom: 0;
-    font-weight: 500
-}
-
-.blog-grid-text .meta-style2 ul li:last-child {
-    margin-right: 0
-}
-
-.blog-grid-text ul {
-    margin: 0;
-    padding: 0
-}
-
-.blog-grid-text ul li {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 5px 10px 5px 0
-}
-
-.blog-grid-text ul li:last-child {
-    margin-right: 0
-}
-
-.blog-grid-text ul li i {
-    font-size: 14px;
-    font-weight: 600;
-    margin-right: 5px
-}
-
-.blog-grid-text p {
-    font-weight: 400;
-    padding: 0
-}
-
-.blog-list-left-heading:after,
-.blog-title-box:after {
-    content: '';
-    height: 2px
-}
-
-.blog-grid-simple-content a:hover {
-    color: #1d184a
-}
-
-.blog-grid-simple-content a:hover:after {
-    color: #1d184a
-}
-.blog-grid-text {
-    position: relative
-}
-
-.blog-grid-text>span {
-    color: #292dc2;
-    font-size: 13px;
-    padding-right: 5px
-}
-
-.blog-grid-text h4 {
-    line-height: normal;
-    margin-bottom: 15px
-}
-
-.blog-grid-text .meta-style2 {
-    border-top: 1px dashed #cee1f8 !important;
-    padding-top: 15px
-}
-
-.blog-grid-text .meta-style2 ul li {
-    margin-bottom: 0;
-    font-weight: 500
-}
-
-.blog-grid-text .meta-style2 ul li:last-child {
-    margin-right: 0
-}
-
-.blog-grid-text ul {
-    margin: 0;
-    padding: 0
-}
-
-.blog-grid-text ul li {
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 500;
-    margin: 5px 10px 5px 0
-}
-
-.blog-grid-text ul li:last-child {
-    margin-right: 0
-}
-
-.blog-grid-text ul li i {
-    font-size: 14px;
-    font-weight: 600;
-    margin-right: 5px
-}
-
-.blog-grid-text p {
-    font-weight: 400;
-    padding: 0
-}
-
-a, a:active, a:focus {
-    color: #575a7b;
-    text-decoration: none;
-    transition-timing-function: ease-in-out;
-    -ms-transition-timing-function: ease-in-out;
-    -moz-transition-timing-function: ease-in-out;
-    -webkit-transition-timing-function: ease-in-out;
-    -o-transition-timing-function: ease-in-out;
-    transition-duration: .2s;
-    -ms-transition-duration: .2s;
-    -moz-transition-duration: .2s;
-    -webkit-transition-duration: .2s;
-    -o-transition-duration: .2s;
-}
-
-.pagination {
-    border-radius: 0;
-    padding: 0;
-    margin: 0
-}
-
-.pagination ul {
-    display: inline-block;
-    display: inline;
-    zoom: 1;
-    margin: 0 auto;
-    padding: 0
-}
-
-.pagination li {
-    display: inline
-}
-
-.pagination a {
-    float: left;
-    padding: 0 18px;
-    line-height: 40px;
-    text-decoration: none;
-    border: 1px solid #dbdbdb;
-    border-left-width: 0;
-    background: #fff
-}
-
-.pagination a:hover {
-    background-color: #1d184a;
-    color: #fff
-}
-
-.pagination .active a {
-    background-color: #f7f7f7;
-    color: #999;
-    cursor: default
-}
-
-.pagination .disabled span {
-    color: #999;
-    background-color: transparent;
-    cursor: default
-}
-
-.pagination .disabled a {
-    color: #999;
-    background-color: transparent;
-    cursor: default
-}
-
-.pagination .disabled a:hover {
-    color: #999;
-    background-color: transparent;
-    cursor: default
-}
-
-.pagination li:first-child a {
-    border-left-width: 1px
-}
-
-.mt-6, .my-6 {
-    margin-top: 3.5rem;
-}
   
+}
+.account-block .overlay {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* border: black solid rgba(0, 0, 0, 0); */
+}
+.account-block .account-testimonial {
+  text-align: center;
+  color: #ffffff;
+  position: absolute;
+  margin: 0 auto;
+  padding: 0 1.75rem;
+  bottom: 3rem;
+  left: 0;
+  right: 0;
+}
+
+.text-theme {
+  color: #5369f8 !important;
+}
+
+.btn-theme {
+  background-color: #5369f8;
+  border-color: #5369f8;
+  color: #5369f8;
+  margin-top: 20px;
+}
+
+/* Add this to your existing CSS */
+/* Elastic Input Styles */
+.form-group {
+position: relative;
+margin-bottom: 1rem;
+}
+
+.form-control {
+border: none; /* Remove the border */
+border-bottom: 2px solid #5369f8; /* Add a line under the input */
+padding: 0.5rem 1rem;
+font-size: 0.8rem;
+transition: all 0.3s;
+width: 100%;
+background: transparent; /* Make the background transparent */
+outline: none;
+border-color: transparent; /* Set border color to transparent when focused */
+  box-shadow: none;
+}
+
+.form-control:focus {
+border-bottom-color: #5369f8; /* Change the line color on focus */
+}
+
+/* Add this if you want to change the placeholder text color */
+.form-control::placeholder {
+color: #5369f8;
+}
+
+/* Button Styles */
+.btn-theme {
+background-color: transparent;
+border: #5369f8; /* Remove the button border */
+padding: 0.5rem 1rem;
+font-size: 1rem;
+transition: all 0.3s;
+margin-top: 5px;
+}
+
+.btn-theme:hover {
+background-color: #5369f8;
+color: #fff;
+text-decoration: none;
+}
