@@ -81,9 +81,14 @@
       <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link" routerLink="/login" (click)="logout()">Logout</a>
       </li>
-      <li class="nav-item" *ngIf="isLoggedIn()">
-        <a class="nav-link" routerLink="/cart">Cart</a>
-      </li>
+      <!-- Cart icon with notification badge -->
+      <div class="cart-icon">
+        <li class="nav-item" *ngIf="isLoggedIn()">
+          <span class="badge" routerLink="/cart">0</span>
+        </li>
+        <i class="fa fa-shopping-cart" aria-hidden="true" routerLink="/cart"></i>
+     
+      </div>  
     </ul>
   </div>
 </nav>

@@ -14,6 +14,7 @@ export class NavigationBarComponent {
   }>();
   @Output() searchQuery = new EventEmitter<string>();
   searchedValue = '';
+  
   constructor(
     public generalServices: GeneralService,
     public authService: AuthService

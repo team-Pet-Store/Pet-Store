@@ -40,9 +40,7 @@
                             <i class="fa fa-trash"></i>
                         </button>
                     </td>
-                </tr>
-             
-                    
+                </tr>     
      </tbody>
      </table>             
                  
@@ -58,10 +56,11 @@
     </div>
     
     <div class="shopping-cart-footer">
-        <div class="column"><button class="btn btn-outline-secondary"  routerLink="/checkout"  ><i class="icon-arrow-left"></i>&nbsp;check out </button></div>
+        <div class="column"><button class="btn btn-outline-secondary" (click)="toggleModal()" ><i class="icon-arrow-left" ></i>&nbsp;check out </button></div>
         <div class="column" ><a class="btn btn-outline-secondary" href="#"><i  id="center"></i>&nbsp;Back to Shopping</a></div>
       
 
     </div>
+    <app-chekout *ngIf="isCheckoutVisible" (toggleModalEvent)="toggleModal()"></app-chekout>
     
 </div>

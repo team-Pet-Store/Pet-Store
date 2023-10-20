@@ -4,6 +4,7 @@ import { MainServiceService } from 'src/app/service/main-service.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCartComponent } from '../delete-cart/delete-cart.component';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -14,12 +15,16 @@ export class CartComponent implements OnInit {
   products: any[]=[];
   quantityOptions: number[] = [1, 2, 3, 4, 5];
   subtotal=0;
+  isCheckoutVisible=false
+
+
  
   constructor(
     private myservice:CartService, public mainservice :MainServiceService, public http:HttpClient , private dialog: MatDialog
   ){ }
    ngOnInit():void{
     this.getCartProducts()
+ 
     }
     onSelect(): void {
       this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
@@ -32,7 +37,9 @@ export class CartComponent implements OnInit {
           this.products = response.map((elem:any)=>({...elem,quantity:1})); 
           this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
 
-        },
+      
+      
+      },
         error:(error:any) => {
           console.error('Error fetching cart products:', error);
         }
@@ -74,6 +81,12 @@ export class CartComponent implements OnInit {
         }
       });
     }
+    toggleModal() {
+      this.isCheckoutVisible = !this.isCheckoutVisible;
+    }
+   
+   
+  
     
   }
 
