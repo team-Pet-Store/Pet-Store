@@ -4,6 +4,7 @@ import { MainServiceService } from 'src/app/service/main-service.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCartComponent } from '../delete-cart/delete-cart.component';
+import { DeleteCartAllComponent } from '../delete-cart-all/delete-cart.component';
 
 @Component({
   selector: 'app-cart',
@@ -14,25 +15,35 @@ export class CartComponent implements OnInit {
   products: any[]=[];
   quantityOptions: number[] = [1, 2, 3, 4, 5];
   subtotal=0;
+  isCheckoutVisible=false
+
+
  
   constructor(
     private myservice:CartService, public mainservice :MainServiceService, public http:HttpClient , private dialog: MatDialog
   ){ }
    ngOnInit():void{
     this.getCartProducts()
+ 
+    }
+    caluculateSubtotal (): void{
+      this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+      this.subtotal =parseFloat(this.subtotal.toFixed(2))
+
     }
     onSelect(): void {
-      this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
-
+      this.caluculateSubtotal()
     }
     getCartProducts(): void {
       this.myservice.getCartProducts().subscribe({
         next:(response: any) => {
           console.log('products:', response);
           this.products = response.map((elem:any)=>({...elem,quantity:1})); 
-          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+          this.caluculateSubtotal()
 
-        },
+      
+      
+      },
         error:(error:any) => {
           console.error('Error fetching cart products:', error);
         }
@@ -43,8 +54,7 @@ export class CartComponent implements OnInit {
         next:(response:any) => {
          
           this.products = this.products.filter((product) => product.id !== productID);
-          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
-        },
+          this.caluculateSubtotal()        },
        error: (error) => {
         
           console.error('Error deleting product:', error);
@@ -60,6 +70,16 @@ export class CartComponent implements OnInit {
         }
       });
     }
+    openDeleteAllConfirmation(): void {
+      const dialogRef = this.dialog.open(DeleteCartAllComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === true) {
+          this.removeAllFromCart(); 
+        }
+      });
+    }
+    
     removeAllFromCart(): void {
       this.myservice.removeAllFromCart().subscribe({
         next: (response: any) => {
@@ -74,6 +94,12 @@ export class CartComponent implements OnInit {
         }
       });
     }
+    toggleModal() {
+      this.isCheckoutVisible = !this.isCheckoutVisible;
+    }
+   
+   
+  
     
   }
 

@@ -229,8 +229,7 @@ select.form-control {
     height: 36px;
 }
 .item-image {
-  width: 100px; /* Adjust the width as needed /
-  height: 100px; / Adjust the height as needed */
+  width: 100px; 
   overflow: hidden;
 }
 
