@@ -91,8 +91,6 @@ export class CardsComponent implements OnInit {
 
 }
   
-
-  }
   isLoggedIn(): boolean {
     return this.generalServices.isLoggedIn();
   }
