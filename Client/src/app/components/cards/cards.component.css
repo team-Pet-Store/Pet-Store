@@ -263,6 +263,7 @@ margin-left: 200px;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
+
 .modal-container {
   position: fixed;
   top: 0;
@@ -284,3 +285,4 @@ margin-left: 200px;
   max-width: 80%;
   text-align: center;
 }
+
