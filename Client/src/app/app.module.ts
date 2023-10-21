@@ -56,7 +56,7 @@ export function tokenGetter() {
     DeleteCartComponent,
     ChekoutComponent,
     DeleteProductsConfirmationComponent,
-    DeleteCartAllComponent
+    DeleteCartAllComponent,
     UpdateProductComponent,
     AddProductsComponent,
   ],
