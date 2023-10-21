@@ -60,6 +60,8 @@ body{
   width: 100%;
   background: transparent; /* Make the background transparent */
   outline: none;
+  border-color: transparent; /* Set border color to transparent when focused */
+  box-shadow: none;
 }
 
 .form-control:focus {

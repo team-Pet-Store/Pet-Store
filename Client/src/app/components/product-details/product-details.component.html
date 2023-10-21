@@ -1,8 +1,11 @@
-<div class="d-flex flex-column text-center bg-white mb-2 p-sm-5">
-  <h3 class="flaticon-house display-3 font-weight-normal text-secondary mb-3">
-    <img [src]="selectedProduct.imageUrl" alt="" />
-  </h3>
-  <h3 class="mb-3">{{ selectedProduct.name }}</h3>
-  <p>{{ selectedProduct.description }}</p>
-  <p class="price">${{ selectedProduct.price }}</p>
+<div class="product-details">
+  <div class="image-container">
+    <img  [src]="selectedProduct.imageUrl"alt="Product Image" class="product-image" />
+  </div>
+  <div class="info">
+    <h3 class="product-name">{{ selectedProduct.name }}</h3>
+    <p class="product-description">{{ selectedProduct.description }}</p>
+    <p class="price">${{ selectedProduct.price }}</p>
+  </div>
 </div>
+ 

@@ -1,14 +1,27 @@
 const { Product } = require("../model");
 const cloudinary = require("../utils/cloudinary");
 const { Readable } = require("stream");
+const { Op } = require("sequelize");
 
 module.exports = {
   getAllProducts: async (req, res) => {
     try {
-      const products = await Product.findAll();
+      const { searchTerm } = req.query;
+      let products;
+      if (searchTerm) {
+        products = await Product.findAll({
+          where: {
+            name: {
+              [Op.like]: `%${searchTerm}%`,
+            },
+          },
+        });
+      } else {
+        products = await Product.findAll();
+      }
       res.status(200).json(products);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       res.status(500).send(error);
     }
   },
