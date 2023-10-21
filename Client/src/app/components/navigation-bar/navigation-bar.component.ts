@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter,Input } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { GeneralService } from 'src/app/service/genral.service';
 
@@ -14,6 +14,7 @@ export class NavigationBarComponent {
   }>();
   @Output() searchQuery = new EventEmitter<string>();
   searchedValue = '';
+  @Input() cartCount:number= 0;
   
   constructor(
     public generalServices: GeneralService,

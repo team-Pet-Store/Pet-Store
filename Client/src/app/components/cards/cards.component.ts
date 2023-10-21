@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input ,Output,EventEmitter} from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 import { MainServiceService } from 'src/app/service/main-service.service';
@@ -15,10 +15,11 @@ import { CardService } from './cards.service';
 export class CardsComponent implements OnInit {
   @Input() selectedCategory: { animal: string; category: string } | null = null;
   @Input() searchTerm: string = '';
+  @Output() onAddToCart = new EventEmitter<void>();
+  
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
   public filteredProducts: Product[] = [];
-  showPlusOne = false;
 
   constructor(
     private myservice: CardService,
@@ -77,20 +78,16 @@ export class CardsComponent implements OnInit {
     this.myservice.addToCart(productID).subscribe({
       next: (response: any) => {
         console.log('Product added to cart:', response);
-        this.showPlusOne = true;
+       this.onAddToCart.emit()
       
       },
       error: (err: any) => {
         console.log(err);
       },
     });
-   onShow(productID){
-    setTimeout(() => {
-      this.showPlusOne = false;
-    }, 1000);
-  }
+  
 
-  }
+}
   
 
  

@@ -84,7 +84,7 @@
       <!-- Cart icon with notification badge -->
       <div class="cart-icon">
         <li class="nav-item" *ngIf="isLoggedIn()">
-          <span class="badge" routerLink="/cart">0</span>
+          <span class="badge" routerLink="/cart">{{cartCount}}</span>
         </li>
         <i class="fa fa-shopping-cart" aria-hidden="true" routerLink="/cart"></i>
      
