@@ -4,7 +4,7 @@ import { MainServiceService } from 'src/app/service/main-service.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCartComponent } from '../delete-cart/delete-cart.component';
-import { BehaviorSubject } from 'rxjs';
+import { DeleteCartAllComponent } from '../delete-cart-all/delete-cart.component';
 
 @Component({
   selector: 'app-cart',
@@ -26,16 +26,20 @@ export class CartComponent implements OnInit {
     this.getCartProducts()
  
     }
-    onSelect(): void {
+    caluculateSubtotal (): void{
       this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+      this.subtotal =parseFloat(this.subtotal.toFixed(2))
 
+    }
+    onSelect(): void {
+      this.caluculateSubtotal()
     }
     getCartProducts(): void {
       this.myservice.getCartProducts().subscribe({
         next:(response: any) => {
           console.log('products:', response);
           this.products = response.map((elem:any)=>({...elem,quantity:1})); 
-          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
+          this.caluculateSubtotal()
 
       
       
@@ -50,8 +54,7 @@ export class CartComponent implements OnInit {
         next:(response:any) => {
          
           this.products = this.products.filter((product) => product.id !== productID);
-          this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
-        },
+          this.caluculateSubtotal()        },
        error: (error) => {
         
           console.error('Error deleting product:', error);
@@ -67,6 +70,16 @@ export class CartComponent implements OnInit {
         }
       });
     }
+    openDeleteAllConfirmation(): void {
+      const dialogRef = this.dialog.open(DeleteCartAllComponent);
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result === true) {
+          this.removeAllFromCart(); 
+        }
+      });
+    }
+    
     removeAllFromCart(): void {
       this.myservice.removeAllFromCart().subscribe({
         next: (response: any) => {
