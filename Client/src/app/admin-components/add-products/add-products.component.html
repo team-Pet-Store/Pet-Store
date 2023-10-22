@@ -42,11 +42,17 @@
           <label for="imageUrl" class="form-label">Choose a Product Image</label>
           <input type="file" class="form-control" id="imageUrl" (change)="onImageSelected($event)" />
         </div>
+        <div *ngIf="loading" class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p>Adding product...</p>
+        </div>
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" (click)="modalRef.close()">Close</button>
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Save Changes</button>
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()" [disabled]="loading">Close</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="loading">Save Changes</button>
     </div>
   </div>
 </div>
