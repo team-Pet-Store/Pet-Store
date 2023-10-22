@@ -68,7 +68,7 @@
         <li class="nav-item" *ngIf="isLoggedIn()">
           <span class="badge" routerLink="/cart">{{cartCount}}</span>
         </li>
-        <a class="nav-link" routerLink="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+        <a class="nav-link" routerLink="/cart" *ngIf="isLoggedIn()"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
       </div>  
 
       <li class="nav-item" *ngIf="isLoggedIn()" class="custom-logout-icon">

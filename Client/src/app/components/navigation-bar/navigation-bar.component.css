@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: #ffffff;
+    background-color: #5369F8;
     height: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
@@ -8,7 +8,7 @@
   .navbar-custom .navbar-brand,
   .navbar-custom .nav-link {
     font-size: 21px;
-    color: #5369F8;
+    color: #ffffff;
   }
   
   /* Increase the icon size within the brand */
@@ -84,7 +84,7 @@
  
 }
 #exampleFormControlInput1{
-  background-color: #ffffff
+  background-color: #5369F8
 }
 .form-group {
   display: flex;
@@ -94,7 +94,7 @@
 
 .fa-magnifying-glass {
   margin-right: 5px; /* Adjust the margin as needed to separate the icon from the input */
-  color: #5369F8;
+  color: #ffffff;
 }
 
 /* Remove the blue color when clicking on the search bar */
