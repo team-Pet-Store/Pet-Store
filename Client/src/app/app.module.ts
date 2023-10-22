@@ -30,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
 import { ChekoutComponent } from './components/chekout/chekout.component';
 import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
-import { DeleteCartAllComponent } from './components/delete-cart-all/delete-cart.component';
+import { DeleteCartAllComponent } from './components/delete-cart -all/delete-cart.component';
+import { OrderComponent } from './components/order/order.component';
 
 
 
@@ -56,7 +57,8 @@ export function tokenGetter() {
     DeleteCartComponent,
     ChekoutComponent,
     DeleteProductsConfirmationComponent,
-    DeleteCartAllComponent
+    DeleteCartAllComponent,
+    OrderComponent
 
 
   ],
