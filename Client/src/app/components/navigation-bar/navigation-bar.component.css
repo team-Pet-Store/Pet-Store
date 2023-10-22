@@ -1,5 +1,5 @@
 .navbar-custom {
-    background-color: #ffffff;
+    background-color: #5369F8;
     height: 80px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
@@ -8,7 +8,7 @@
   .navbar-custom .navbar-brand,
   .navbar-custom .nav-link {
     font-size: 21px;
-    color: #5369F8;
+    color: #ffffff;
   }
   
   /* Increase the icon size within the brand */
@@ -38,6 +38,31 @@
   margin-left: 100px;
 }
 
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .cart-icon .fas {
+    font-size: 24px; /* Adjust the icon size as needed */
+    margin-right: 8px; /* Add some spacing between the icon and badge */
+    
+  }
+  .cart-icon .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: rgba(255, 72, 0, 0.952);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+
 .form-control:focus {
   position: relative; 
 }
@@ -59,7 +84,7 @@
  
 }
 #exampleFormControlInput1{
-  background-color: #ffffff
+  background-color: #5369F8
 }
 .form-group {
   display: flex;
@@ -69,7 +94,7 @@
 
 .fa-magnifying-glass {
   margin-right: 5px; /* Adjust the margin as needed to separate the icon from the input */
-  color: #5369F8;
+  color: #ffffff;
 }
 
 /* Remove the blue color when clicking on the search bar */

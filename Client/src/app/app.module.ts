@@ -12,7 +12,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { AdminNavigationBarComponent } from './admin-components/admin-navigation-bar/admin-navigation-bar.component';
-import { ProductsListComponent } from './admin-components/products-list/products-list.component';
+
 import { TokenInterceptor } from './service/http-interceptor.service';
 import { AdminHomeComponent } from './admin-components/admin-home/admin-home.component';
 import { RouterModule } from '@angular/router';
@@ -27,7 +27,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
 import { ChekoutComponent } from './components/chekout/chekout.component';
 import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
+import { DeleteCartAllComponent } from './components/delete-cart -all/delete-cart.component';
+import { OrderComponent } from './components/order/order.component';
+import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
+import { AddProductsComponent } from './admin-components/add-products/add-products.component';
+
+
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -51,11 +57,15 @@ export function tokenGetter() {
     DeleteCartComponent,
     ChekoutComponent,
     DeleteProductsConfirmationComponent,
+    DeleteCartAllComponent,
+    OrderComponent,
     UpdateProductComponent,
+    AddProductsComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,  
+    ReactiveFormsModule ,
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
@@ -67,8 +77,7 @@ export function tokenGetter() {
       },
     }),
     BrowserAnimationsModule,
-    MatDialogModule,
-    ReactiveFormsModule,
+    MatDialogModule, 
   ],
   providers: [
     {
@@ -81,3 +90,26 @@ export function tokenGetter() {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

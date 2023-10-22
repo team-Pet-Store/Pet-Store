@@ -22,7 +22,7 @@ module.exports={
             const cloudinaryResult = await cloudinary.uploader.upload_stream({
                 resource_type: 'image',
             },
-                async (error, result) => {
+                async (error, result) => {  
                     if (error) {
                         console.error('Error uploading image to Cloudinary:', error);
                         res.status(500).json({ error: 'Image upload failed' });

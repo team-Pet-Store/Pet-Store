@@ -37,15 +37,15 @@ export class UpdateProductComponent {
       const productId = this.selectedProduct.id;
       this.http
         .put(`http://localhost:3000/api/product/${productId}`, formData)
-        .subscribe(
-          (res) => {
+        .subscribe({
+          next: (res) => {
             console.log(res);
             this.updateProductEvent.emit(this.selectedProduct);
           },
-          (error) => {
+          error: (error) => {
             console.error('Error updating product:', error);
-          }
-        );
+          },
+        });
     } catch (error) {
       console.error('Error updating product:', error);
     }
