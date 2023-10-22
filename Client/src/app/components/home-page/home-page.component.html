@@ -1,10 +1,11 @@
 <div class="d-flex flex-column text-center mb-5">
-  <app-navigation-bar (categorySelected)="onCategorySelected($event)"
-    (searchQuery)="onSearch($event)"></app-navigation-bar>
+  <app-navigation-bar (categorySelected)="onCategorySelected($event)" (searchQuery)="onSearch($event)"
+    [cartCount]="cartCount"></app-navigation-bar>
   <h1 class="display-4 m-0 py-5">
     <span class="premium text-primary">Premium</span> Pet Products
   </h1>
 </div>
 <div class="row pb-3">
-  <app-cards [selectedCategory]="selectedCategory" [searchTerm]="searchTerm"></app-cards>
+  <app-cards [selectedCategory]="selectedCategory" [searchTerm]="searchTerm"
+    (onAddToCart)=" onProductSelected()"></app-cards>
 </div>

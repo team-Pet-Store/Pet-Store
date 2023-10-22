@@ -1,3 +1,106 @@
 .navbar-custom {
-    background-color: rgb(178, 175, 175);
+    background-color: #ffffff;
+    height: 80px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Increase font size for all navbar links and the brand */
+  .navbar-custom .navbar-brand,
+  .navbar-custom .nav-link {
+    font-size: 21px;
+    color: #5369F8;
+  }
+  
+  /* Increase the icon size within the brand */
+  .navbar-custom .navbar-brand i {
+    font-size: 40px;
+  }
+  
+  /* Increase the icon size for the search button */
+  .navbar-custom .btn-base svg {
+    width: 100px;
+    height: 28px;
+  }
+  
+  /* Adjust padding to center vertically */
+  .navbar-custom .navbar-nav {
+    align-items: center;
+  }
+  
+  .custom-cart-icon {
+    margin-right: 50px; /* Adjust the margin as needed to move it to the left */
+  }
+  .custom-logout-icon{
+    margin-right: 20px;
+  }
+.navbar-nav{
+  position: relative;
+  margin-left: 100px;
 }
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .cart-icon .fas {
+    font-size: 24px; /* Adjust the icon size as needed */
+    margin-right: 8px; /* Add some spacing between the icon and badge */
+    
+  }
+  .cart-icon .badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: rgba(255, 72, 0, 0.952);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+  
+
+.form-control:focus {
+  position: relative; 
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+
+}
+.custom-search-form {
+ 
+  position: absolute;
+  left: 45%; /* Center it horizontally */
+  transform: translateX(-55%); /* Center it horizontally */
+  top: 65%; /* Center it vertically */
+  transform: translateY(-50%); /* Center it vertically */
+ 
+}
+#exampleFormControlInput1{
+  background-color: #ffffff
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  
+}
+
+.fa-magnifying-glass {
+  margin-right: 5px; /* Adjust the margin as needed to separate the icon from the input */
+  color: #5369F8;
+}
+
+/* Remove the blue color when clicking on the search bar */
+.form-control-underlined:focus {
+  border-color: transparent; /* Set border color to transparent when focused */
+  box-shadow: none; /* Remove any box shadow when focused */
+
+}
+
