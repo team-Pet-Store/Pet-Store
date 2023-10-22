@@ -26,29 +26,35 @@
             <div id="collapseCC" class="accordion-collapse collapse show" data-bs-parent="#accordionPayment">
               <div class="accordion-body">
                 <div class="mb-3">
-                  <label class="form-label">Card Number</label>
-                  <input type="text" class="form-control" placeholder="" formControlName="confirmationInput" required>
-                  <div class="error-message" *ngIf="confirmationForm.get('confirmationInput')?.hasError('required')">
-                    Card Number is required.
-                  </div>                
+                  <label class="form-label">Card Number*</label>
+                  <input type="text" class="form-control" placeholder="" formControlName="confirmationInput" 
+                  [ngClass]="{ 'border-red': confirmationForm?.get('confirmationInput')?.invalid && confirmationForm?.get('confirmationInput')?.touched }"
+                  >
+                                
                 </div>
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="mb-3">
-                      <label class="form-label">Name on card</label>
-                      <input type="text" class="form-control" placeholder="" formControlName="cardName" required>
+                      <label class="form-label">Name on card*</label>
+                      <input 
+                      [ngClass]="{ 'border-red': confirmationForm?.get('cardName')?.invalid && confirmationForm?.get('cardName')?.touched }"
+                      type="text" class="form-control" placeholder="" formControlName="cardName" required>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="mb-3">
-                      <label class="form-label">Expiry date</label>
-                      <input type="text" class="form-control" placeholder="MM/YY" formControlName="expiryDate" required>
+                      <label class="form-label">Expiry date*</label>
+                      <input 
+                      [ngClass]="{ 'border-red': confirmationForm?.get('expiryDate')?.invalid && confirmationForm?.get('expiryDate')?.touched }"
+                      type="text" class="form-control" placeholder="MM/YY" formControlName="expiryDate" required>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="mb-3">
                       <label class="form-label">CVV Code</label>
-                      <input type="password" class="form-control" formControlName="cvvCode" required>
+                      <input
+                      [ngClass]="{ 'border-red': confirmationForm?.get('cvvCode')?.invalid && confirmationForm?.get('cvvCode')?.touched }"
+                      type="password" class="form-control" formControlName="cvvCode" required>
                     </div>
                   </div>
                 </div>
@@ -79,26 +85,28 @@
                 <i class="fa fa-spinner fa-spin loading-icon" style="font-size: 48px;"></i>
               </div>
               <div class="overlay" *ngIf="deliveryConfirmed && !loadingDelivery">
-                <i class="fa fa-check check-icon" style="font-size: 48px; color: green;"></i>
+                <i class="fa fa-check check-icon" style="font-size: 48px; color: green;" ></i>
               </div>
             </h2>
             <div id="collapsePP" class="accordion-collapse collapse" data-bs-parent="#accordionPayment">
               <div class="accordion-body">
                 <div class="px-2 col-lg-6 mb-3">
-                  <label class="form-label">Full Name</label>
-                  <input type="text" class="form-control" formControlName="fullName" required>
-                
-                  <label class="form-label">Address</label>
-                  <input type="text" class="form-control" formControlName="address" required>
-                  
-                  <label class="form-label">Email</label>
-                  <input type="email" class="form-control" formControlName="email" required>
+                  <label class="form-label">Full Name*</label>
                  
-                  <label class="form-label">Phone Number</label>
-                  <input type="tel" class="form-control" formControlName="phoneNumber" required>
-                  <div class="error-message" *ngIf="deliveryForm.get('phoneNumber')?.hasError('required')">
-                    Phone Number is required.
-                  </div>
+                  <input type="text" class="form-control" formControlName="fullName" required
+                  [ngClass]="{ 'border-red':  deliveryForm?.get('fullName')?.invalid &&  deliveryForm?.get('fullName')?.touched }">
+                
+                  <label class="form-label">Address*</label>
+                  <input type="text" class="form-control" formControlName="address" required
+                  [ngClass]="{ 'border-red':  deliveryForm?.get('address')?.invalid &&  deliveryForm?.get('address')?.touched }">
+                  
+                  <label class="form-label">Email*</label>
+                  <input type="email" class="form-control" formControlName="email" required
+                  [ngClass]="{ 'border-red':  deliveryForm?.get('email')?.invalid &&  deliveryForm?.get('email')?.touched }">
+                 
+                  <label class="form-label">Phone Number*</label>
+                  <input type="tel" class="form-control" formControlName="phoneNumber" required
+                  [ngClass]="{ 'border-red':  deliveryForm?.get('phoneNumber')?.invalid &&  deliveryForm?.get('phoneNumber')?.touched }">
                 </div>
                 <div>
                   <button type="button" class="button-73" (click)="confirmDelivery()">
