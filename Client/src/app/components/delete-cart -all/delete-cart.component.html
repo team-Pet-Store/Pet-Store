@@ -1,8 +1,14 @@
-<mat-dialog-content>
-    <p>Are you sure you want to delete these items?</p>
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button (click)="onDeleteClick()">Delete</button>
-    <button mat-button (click)="onCancelClick()">Cancel</button>
-  </mat-dialog-actions>
-  
+<mat-dialog-content class="custom-dialog-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Delete Products</h4>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete all products from your cart?</p>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions class="custom-dialog-actions">
+  <div class="modal-footer">
+    <button class="delete-button" (click)="onDeleteClick()">Delete</button>
+    <button class="cancel-button" (click)="onCancelClick()">Cancel</button>
+  </div>
+</mat-dialog-actions>

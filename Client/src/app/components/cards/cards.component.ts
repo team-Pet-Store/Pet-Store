@@ -3,7 +3,7 @@ import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 import { MainServiceService } from 'src/app/service/main-service.service';
 import { CardService } from './cards.service';
-
+import { GeneralService } from 'src/app/service/genral.service';
 
 
 @Component({
@@ -24,7 +24,8 @@ export class CardsComponent implements OnInit {
   constructor(
     private myservice: CardService,
     public mainservice: MainServiceService,
-    private http: HttpClient
+    private http: HttpClient,
+    public generalServices: GeneralService
   ) {}
 
   ngOnInit(): void {
@@ -85,10 +86,13 @@ export class CardsComponent implements OnInit {
         console.log(err);
       },
     });
+
   
 
 }
   
+  isLoggedIn(): boolean {
+    return this.generalServices.isLoggedIn();
+  }
 
- 
 }

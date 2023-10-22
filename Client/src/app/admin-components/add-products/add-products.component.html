@@ -1,85 +1,58 @@
-
 <div class="modal-overlay">
-    <div class="modal-content">
-  
-<div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
-  <button
-    type="button"
-    class="btn-close"
-    aria-label="Close"
-    (click)="modalRef.close()"
-  ></button>
-</div>
-<div class="modal-body">
-  <form>
-    <div class="mb-3">
-      <label for="productName" class="form-label">Product Name</label>
-      <input
-        type="text"
-        class="form-control"
-        id="productName"
-        name="productName"
-        required
-      />
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Add New Product</h5>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Close"
+        (click)="modalRef.close()"
+      ></button>
     </div>
-    <div class="mb-3">
-      <label for="productDescription" class="form-label"
-        >Product Description</label
-      >
-      <textarea
-        class="form-control"
-        id="productDescription"
-        name="productDescription"
-        required
-      ></textarea>
+    <div class="modal-body">
+      <form (ngSubmit)="onSubmit()" [formGroup]="productForm" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="name" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="name" formControlName="name" required />
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Product Description</label>
+          <textarea class="form-control" id="description" formControlName="description" required></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Product Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price" required />
+        </div>
+        <div class="mb-3">
+          <label for="animal" class="form-label">Select Animal Type</label>
+          <select class="form-select" id="animal" formControlName="animal" required>
+            <option value="Dog">Dog</option>
+            <option value="Cat">Cat</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="category" class="form-label">Select Category</label>
+          <select class="form-select" id="category" formControlName="category" required>
+            <option value="Food">Food</option>
+            <option value="Toy">Toy</option>
+            <option value="Upholstery">Upholstery</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Choose a Product Image</label>
+          <input type="file" class="form-control" id="imageUrl" (change)="onImageSelected($event)" />
+        </div>
+        <div *ngIf="loading" class="text-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p>Adding product...</p>
+        </div>
+      </form>
     </div>
-    <div class="mb-3">
-      <label for="productPrice" class="form-label">Product Price</label>
-      <input
-        type="number"
-        class="form-control"
-        id="productPrice"
-        name="productPrice"
-        required
-      />
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.close()" [disabled]="loading">Close</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="loading">Save Changes</button>
     </div>
-    <div class="mb-3">
-      <label for="animalType" class="form-label">Select Animal Type</label>
-      <select class="form-select" id="animalType" name="animalType" required>
-        <option value="Dog">Dog</option>
-        <option value="Cat">Cat</option>
-      </select>
-    </div>
-    <div class="mb-3">
-        <label for="animalType" class="form-label">Select Category</label>
-        <select class="form-select" id="animalType" name="animalType" required>
-          <option value="Dog">Food</option>
-          <option value="Cat">Toy</option>
-          <option value="Cat">Upholstery</option>
-        </select>
-    </div>
-    <div class="mb-3">
-      <label for="productImage" class="form-label"
-        >Choose a Product Image</label
-      >
-      <input
-        type="file"
-        class="form-control"
-        id="productImage"
-        name="productImage"
-      />
-    </div>
-  </form>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" (click)="modalRef.close()">
-    Close
-  </button>
-  <button type="button" class="btn btn-primary" [disabled]="!productForm.valid" >
-    Save Changes
-  </button>
-
-</div>
-</div>
+  </div>
 </div>
