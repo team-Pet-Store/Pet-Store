@@ -1,6 +1,6 @@
 .navbar-custom {
     background-color: #5369F8;
-    height: 80px;
+    height: 60px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
   
@@ -32,6 +32,7 @@
   }
   .custom-logout-icon{
     margin-right: 20px;
+    margin-left: 50px;
   }
 .navbar-nav{
   position: relative;
@@ -103,4 +104,6 @@
   box-shadow: none; /* Remove any box shadow when focused */
 
 }
+
+
 

@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter,Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/service/auth.service';
 import { GeneralService } from 'src/app/service/genral.service';
 
@@ -18,7 +19,8 @@ export class NavigationBarComponent {
   
   constructor(
     public generalServices: GeneralService,
-    public authService: AuthService
+    public authService: AuthService ,
+    private router: Router
   ) {}
   ngOnInit(): void {}
   onCategorySelected(animal: string, category: string): void {
@@ -33,4 +35,9 @@ export class NavigationBarComponent {
   isLoggedIn(): boolean {
     return this.generalServices.isLoggedIn();
   }
+  logo() {
+    this.router.navigate(["/"]);
+    window.location.reload();
+  }
+  
 }
