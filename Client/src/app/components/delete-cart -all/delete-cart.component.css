@@ -1,0 +1,72 @@
+/* styles.css (or your custom styles file) */
+
+.custom-dialog-content {
+    background: #ffffff; /* Black background */
+    border-radius: 1px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .modal-header {
+    background: #ffffff; /* Black header background */
+    color: #000000; /* White text color */
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    text-align: center;
+  
+  }
+  
+  .modal-title {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .modal-body {
+    padding: 20px;
+    color: #000000; /* White text color */
+  }
+  
+  .custom-dialog-actions {
+    text-align: right;
+    background: #ffffff;
+  }
+  
+  .modal-footer {
+    margin-top: 20px;
+  }
+  
+  .delete-button, .cancel-button {
+    padding: 12px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .delete-button {
+    background: #ff0000; /* Orange-red color for the delete button */
+    color: #fff;
+    transition: background 0.3s;
+  }
+  
+  .delete-button:hover {
+    background: #e16b30; /* Slightly lighter on hover */
+  }
+  
+  .cancel-button {
+    background: #333; /* Dark gray color for the cancel button */
+    color: #fff;
+    transition: background 0.3s;
+  }
+  
+  .cancel-button:hover {
+    background: #444; /* Slightly darker on hover */
+  }
+  

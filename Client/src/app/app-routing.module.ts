@@ -10,6 +10,7 @@ import { ChekoutComponent } from './components/chekout/chekout.component';
 import { adminGuard } from './service/admin.guard';
 import { UsersListComponent } from './admin-components/users-list/users-list.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
+import { OrderComponent } from './components/order/order.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path : 'admin-home', component : AdminHomeComponent, canActivate:[adminGuard]} ,
   {path : 'admin-usersList' , component : UsersListComponent , canActivate:[adminGuard]} ,
   {path : 'admin-productsList' , component :ProductsListComponent , canActivate:[adminGuard]  } , 
-  {path:'cart', component:CartComponent , canActivate:[authGuard]}
+  {path:'cart', component:CartComponent , canActivate:[authGuard]},
+  {path:'order',component:OrderComponent}
 ];
 
 @NgModule({

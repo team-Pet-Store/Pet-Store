@@ -4,7 +4,7 @@ import { MainServiceService } from 'src/app/service/main-service.service';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteCartComponent } from '../delete-cart/delete-cart.component';
-import { DeleteCartAllComponent } from '../delete-cart-all/delete-cart.component';
+import { DeleteCartAllComponent } from '../delete-cart -all/delete-cart.component';
 
 @Component({
   selector: 'app-cart',
@@ -29,6 +29,8 @@ export class CartComponent implements OnInit {
     caluculateSubtotal (): void{
       this.subtotal = this.products.slice().reduce((total, el) => total + (el.price*el.quantity), 0)
       this.subtotal =parseFloat(this.subtotal.toFixed(2))
+      localStorage.setItem('cart-products',JSON.stringify(this.products))
+      localStorage.setItem('subtotal',this.subtotal.toString())
 
     }
     onSelect(): void {
@@ -87,7 +89,7 @@ export class CartComponent implements OnInit {
           this.products = [];
     
        
-          this.subtotal = 0;
+          this.caluculateSubtotal() 
         },
         error: (error) => {
           console.error('Error deleting products:', error);
