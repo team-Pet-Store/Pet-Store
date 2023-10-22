@@ -16,5 +16,8 @@ export class AdminNavigationBarComponent {
     this.authService.logout()
     this.router.navigate([""])
 }
-
+logo() {
+  this.router.navigate(["admin-home"]);
+  window.location.reload();
+}
 }
