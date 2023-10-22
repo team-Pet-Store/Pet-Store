@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
 
@@ -13,12 +13,13 @@ import { catchError, of } from 'rxjs';
 export class AddProductsComponent {
   productForm: FormGroup;
   private apiUrl = 'http://localhost:3000/api/product/admin';
+  loading = false;
 
   constructor(
     public modalRef: MdbModalRef<AddProductsComponent>,
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router,
+    private router: Router
   ) {
     this.productForm = this.formBuilder.group({
       name: '',
@@ -48,17 +49,19 @@ export class AddProductsComponent {
     formData.append('description', product.description);
     formData.append('price', product.price);
 
+    this.loading = true; 
+
     this.http.post(this.apiUrl, formData).pipe(
       catchError((error) => {
         console.error('Error adding the product:', error);
-        return of(null); 
+        return of(null);
       })
     ).subscribe(() => {
+      this.loading = false
       this.router.navigate(['/admin-productsList']);
       window.location.reload();
     });
   }
-
 
   onSubmit(): void {
     if (this.productForm.valid) {
