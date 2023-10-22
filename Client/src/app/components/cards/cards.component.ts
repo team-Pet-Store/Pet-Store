@@ -1,22 +1,20 @@
-import { Component, OnInit, Input ,Output,EventEmitter} from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { HttpClient } from '@angular/common/http';
 import { MainServiceService } from 'src/app/service/main-service.service';
 import { CardService } from './cards.service';
 import { GeneralService } from 'src/app/service/genral.service';
 
-
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css'],
-
 })
 export class CardsComponent implements OnInit {
   @Input() selectedCategory: { animal: string; category: string } | null = null;
   @Input() searchTerm: string = '';
   @Output() onAddToCart = new EventEmitter<void>();
-  
+
   public products: Product[] = [];
   public selectedProduct: Product | null = null;
   public filteredProducts: Product[] = [];
@@ -33,8 +31,9 @@ export class CardsComponent implements OnInit {
   }
 
   fetchProducts(): void {
-    this.http.get<Product[]>('http://localhost:3000/api/product')
-      .subscribe((data : any) => {
+    this.http
+      .get<Product[]>('http://localhost:3000/api/product')
+      .subscribe((data: any) => {
         this.products = data;
         this.filteredProducts = this.products;
       });
@@ -44,17 +43,22 @@ export class CardsComponent implements OnInit {
   }
 
   filterProducts(): void {
+    let params: any = {};
     if (this.selectedCategory) {
       const { animal, category } = this.selectedCategory;
-      this.filteredProducts = this.products.filter(
-        (product) =>
-          product.animal.toLowerCase() === animal.toLowerCase() &&
-          product.category.toLowerCase() === category.toLowerCase()
-      );
-    } else if (this.searchTerm) {
-      this.filteredProducts = this.filteredProducts.filter((product) =>
-        product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+      params.animal = animal;
+      params.category = category;
+    }
+    if (this.searchTerm) {
+      params.searchTerm = this.searchTerm;
+    }
+
+    if (Object.keys(params).length > 0) {
+      this.http
+        .get<Product[]>('http://localhost:3000/api/product', { params })
+        .subscribe((data: any) => {
+          this.filteredProducts = data;
+        });
     } else {
       this.filteredProducts = this.products;
     }
@@ -79,20 +83,14 @@ export class CardsComponent implements OnInit {
     this.myservice.addToCart(productID).subscribe({
       next: (response: any) => {
         console.log('Product added to cart:', response);
-       this.onAddToCart.emit()
-      
+        this.onAddToCart.emit();
       },
       error: (err: any) => {
         console.log(err);
       },
     });
-
-  
-
-}
-  
+  }
   isLoggedIn(): boolean {
     return this.generalServices.isLoggedIn();
   }
-
 }

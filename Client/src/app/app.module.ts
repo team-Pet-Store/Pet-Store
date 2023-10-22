@@ -27,12 +27,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DeleteCartComponent } from './components/delete-cart/delete-cart.component';
 import { ChekoutComponent } from './components/chekout/chekout.component';
 import { DeleteProductsConfirmationComponent } from './admin-components/delete-products-confirmation/delete-products-confirmation.component';
-import { DeleteCartAllComponent } from './components/delete-cart-all/delete-cart.component';
+import { DeleteCartAllComponent } from './components/delete-cart -all/delete-cart.component';
+import { OrderComponent } from './components/order/order.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
 import { AddProductsComponent } from './admin-components/add-products/add-products.component';
-
-
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -57,13 +56,14 @@ export function tokenGetter() {
     ChekoutComponent,
     DeleteProductsConfirmationComponent,
     DeleteCartAllComponent,
+    OrderComponent,
     UpdateProductComponent,
     AddProductsComponent,
   ],
   imports: [
     BrowserModule,
-    FormsModule,  
-    ReactiveFormsModule ,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
@@ -75,7 +75,7 @@ export function tokenGetter() {
       },
     }),
     BrowserAnimationsModule,
-    MatDialogModule, 
+    MatDialogModule,
   ],
   providers: [
     {
@@ -88,26 +88,3 @@ export function tokenGetter() {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

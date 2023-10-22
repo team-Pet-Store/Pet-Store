@@ -17,6 +17,10 @@ export class HomePageComponent {
       this.selectedCategory = event;
     }
   }
+
+  ngOnInit(): void {
+    this.getcartCountFromStorage()
+  }
   onProductSelected(): void {
     console.log(this.cartCount+1)
   this.cartCount++
@@ -24,5 +28,12 @@ export class HomePageComponent {
 
   onSearch(query: string): void {
     this.searchTerm = query;
+  }
+  getcartCountFromStorage ():void{
+    const items=localStorage.getItem('cart-products')
+    if (items )
+    {
+      this.cartCount=JSON.parse(items).length
+    }
   }
 }

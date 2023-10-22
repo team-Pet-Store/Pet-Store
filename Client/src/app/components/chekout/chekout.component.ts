@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chekout',
@@ -16,7 +17,7 @@ export class ChekoutComponent {
   loadingDelivery: boolean = false;
   deliveryConfirmed: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder , private router: Router) {
     this.confirmationForm = this.formBuilder.group({
       confirmationInput: ['', Validators.required],
       cardName: ['', Validators.required],
@@ -36,36 +37,50 @@ export class ChekoutComponent {
   }
   confirmPayment() {
     this.loading = true;
-
+  
     setTimeout(() => {
       this.paymentConfirm = true;
       this.loading = false;
     }, 2000);
-
+  
     setTimeout(() => {
       this.paymentConfirm = false;
+      this.router.navigate(['/order']);
+
     }, 5000);
+  
   }
+  
   onSubmit() {
     if (this.confirmationForm.valid) {
       const formData = this.confirmationForm.value;
       console.log('Submitted data:', formData);
       this.confirmPayment();
     } else {
+      //alert('All fields marked with (*) are required.');
+      this.confirmationForm.markAllAsTouched()
     }
   }
   confirmDelivery() {
     if (this.deliveryForm.valid) {
       this.loadingDelivery = true;
+  
       setTimeout(() => {
         this.loadingDelivery = false;
         this.deliveryConfirmed = true;
+  
+        setTimeout(() => {
+          this.deliveryConfirmed = false;
+  
+          
+          this.router.navigate(['/order']);
+        }, 1000); 
       }, 2000);
-      setTimeout(() => {
-        this.deliveryConfirmed = false;
-      }, 3000);
     } else {
       this.deliveryForm.markAllAsTouched();
     }
   }
+  
+
+  
 }
