@@ -15,11 +15,23 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  {path:'checkout',component:ChekoutComponent},
-  {path : 'admin-home', component : AdminHomeComponent, canActivate:[adminGuard]} ,
-  {path : 'admin-usersList' , component : UsersListComponent , canActivate:[adminGuard]} ,
-  {path : 'admin-productsList' , component :ProductsListComponent , canActivate:[adminGuard]  } , 
-  {path:'cart', component:CartComponent , canActivate:[authGuard]}
+  { path: 'checkout', component: ChekoutComponent },
+  {
+    path: 'admin-home',
+    component: AdminHomeComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'admin-usersList',
+    component: UsersListComponent,
+    canActivate: [adminGuard],
+  },
+  {
+    path: 'admin-productsList',
+    component: ProductsListComponent,
+    canActivate: [adminGuard],
+  },
+  { path: 'cart', component: CartComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

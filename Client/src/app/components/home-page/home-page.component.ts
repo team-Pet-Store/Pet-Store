@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HomePageComponent {
   public selectedCategory: { animal: string; category: string } | null = null;
   public searchTerm: string | '' = '';
+  public cartCount:number=0;
 
   onCategorySelected(event: { animal: string; category: string }): void {
     if (event.animal === '' && event.category === '') {
@@ -15,6 +16,10 @@ export class HomePageComponent {
     } else {
       this.selectedCategory = event;
     }
+  }
+  onProductSelected(): void {
+    console.log(this.cartCount+1)
+  this.cartCount++
   }
 
   onSearch(query: string): void {
