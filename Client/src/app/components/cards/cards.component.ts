@@ -43,18 +43,19 @@ export class CardsComponent implements OnInit {
   }
 
   filterProducts(): void {
+    let params: any = {};
     if (this.selectedCategory) {
       const { animal, category } = this.selectedCategory;
-      this.filteredProducts = this.products.filter(
-        (product) =>
-          product.animal.toLowerCase() === animal.toLowerCase() &&
-          product.category.toLowerCase() === category.toLowerCase()
-      );
-    } else if (this.searchTerm) {
+      params.animal = animal;
+      params.category = category;
+    }
+    if (this.searchTerm) {
+      params.searchTerm = this.searchTerm;
+    }
+
+    if (Object.keys(params).length > 0) {
       this.http
-        .get<Product[]>(
-          `http://localhost:3000/api/product?searchTerm=${this.searchTerm}`
-        )
+        .get<Product[]>('http://localhost:3000/api/product', { params })
         .subscribe((data: any) => {
           this.filteredProducts = data;
         });

@@ -5,16 +5,22 @@ const { Op } = require("sequelize");
 
 module.exports = {
   getAllProducts: async (req, res) => {
+    const { searchTerm, animal, category } = req.query;
+    let queries = {};
+
+    if (searchTerm) {
+      queries.name = {
+        [Op.like]: `%${searchTerm}%`,
+      };
+    } else if (animal && category) {
+      queries.animal = animal;
+      queries.category = category;
+    }
     try {
-      const { searchTerm } = req.query;
       let products;
-      if (searchTerm) {
+      if (Object.keys(queries).length > 0) {
         products = await Product.findAll({
-          where: {
-            name: {
-              [Op.like]: `%${searchTerm}%`,
-            },
-          },
+          where: queries,
         });
       } else {
         products = await Product.findAll();
