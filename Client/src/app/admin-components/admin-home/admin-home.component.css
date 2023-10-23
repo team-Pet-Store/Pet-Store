@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    margin: 0;
+    background-color: #f0f0f0; /* Set your desired background color here */
+  }
+
+  h1 {
+    text-align: center;
+    color: #635450; /* Set your desired text color here */
+    font-size: 3rem; /* Adjust the font size as needed */
+    font-family: 'Arial', sans-serif; /* Use the font family you prefer */
+  }
