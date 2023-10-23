@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'app-chekout',
@@ -17,7 +18,7 @@ export class ChekoutComponent {
   loadingDelivery: boolean = false;
   deliveryConfirmed: boolean = false;
 
-  constructor(private formBuilder: FormBuilder , private router: Router) {
+  constructor(private formBuilder: FormBuilder , private router: Router ,private cartService: CartService) {
     this.confirmationForm = this.formBuilder.group({
       confirmationInput: ['', Validators.required],
       cardName: ['', Validators.required],
@@ -53,14 +54,26 @@ export class ChekoutComponent {
   
   onSubmit() {
     if (this.confirmationForm.valid) {
+      // Get the form data
       const formData = this.confirmationForm.value;
       console.log('Submitted data:', formData);
-      this.confirmPayment();
+  
+      try {
+        // Assuming that removeAllFromCart is a method in your cart service
+        // Make sure it correctly removes all products from the cart.
+        this.cartService.removeAllFromCart();
+  
+        // After removing products from the cart, you can perform the confirmation.
+        this.confirmPayment();
+      } catch (error) {
+        console.error('Error during order confirmation:', error);
+      }
     } else {
-      //alert('All fields marked with (*) are required.');
-      this.confirmationForm.markAllAsTouched()
+      // If the form is not valid, mark the required fields as touched.
+      this.confirmationForm.markAllAsTouched();
     }
   }
+  
   confirmDelivery() {
     if (this.deliveryForm.valid) {
       this.loadingDelivery = true;
