@@ -63,7 +63,7 @@
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" routerLink="/signup">signup <i class="fa-solid fa-user-plus"></i></a>
       </li>
-      <!-- Cart icon with notification badge -->
+
       <div class="cart-icon">
         <li class="nav-item" *ngIf="isLoggedIn()">
           <span class="badge" routerLink="/cart">{{cartCount}}</span>

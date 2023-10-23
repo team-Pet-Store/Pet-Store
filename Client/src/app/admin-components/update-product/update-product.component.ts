@@ -7,10 +7,12 @@ import { Product } from '../../interfaces/product.interface';
   styleUrls: ['./update-product.component.css'],
 })
 export class UpdateProductComponent {
-  @Input() selectedProduct!: Product;
+
+  @Input() selectedProduct!: Product;  
   @Output() cancelUpdateEvent = new EventEmitter<void>();
   @Output() updateProductEvent = new EventEmitter<Product>();
   imageUrl: File | null = null;
+  
   constructor(private http: HttpClient) {}
   cancelUpdate(): void {
     this.cancelUpdateEvent.emit();
