@@ -32,6 +32,7 @@
   }
   .custom-logout-icon{
     margin-right: 20px;
+    margin-left: 50px;
   }
 .navbar-nav{
   position: relative;
@@ -105,7 +106,12 @@
 
 }
 
+
 #exampleFormControlInput1::placeholder {
   color: white; 
   font-weight: 100/* Set the placeholder text color to white */
 }
+
+
+
+

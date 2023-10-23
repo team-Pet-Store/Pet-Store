@@ -34,8 +34,6 @@ import { UpdateProductComponent } from './admin-components/update-product/update
 import { AddProductsComponent } from './admin-components/add-products/add-products.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-
-
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
@@ -66,8 +64,8 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
-    FormsModule,  
-    ReactiveFormsModule ,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     HttpClientModule,
     AppRoutingModule,
@@ -79,7 +77,7 @@ export function tokenGetter() {
       },
     }),
     BrowserAnimationsModule,
-    MatDialogModule, 
+    MatDialogModule,
   ],
   providers: [
     {
@@ -92,26 +90,3 @@ export function tokenGetter() {
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
