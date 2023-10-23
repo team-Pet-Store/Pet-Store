@@ -4,7 +4,7 @@
 
   <div class="container-fluid p-0">
     <a class="navbar-brand" routerLink="">
-      <i class="fa fa-paw" aria-hidden="true" routerLink=""  ></i> Pet-Store
+       <i class="fa fa-paw" aria-hidden="true" routerLink=""  ></i>  Pet-Store
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +63,7 @@
       <li class="nav-item" *ngIf="!isLoggedIn()">
         <a class="nav-link" routerLink="/signup">signup <i class="fa-solid fa-user-plus"></i></a>
       </li>
-      <!-- Cart icon with notification badge -->
+
       <div class="cart-icon">
         <li class="nav-item" *ngIf="isLoggedIn()">
           <span class="badge" routerLink="/cart">{{cartCount}}</span>
