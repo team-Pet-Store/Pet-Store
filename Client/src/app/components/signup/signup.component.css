@@ -4,7 +4,8 @@ body{
 }
 .account-block {
     padding: 0;
-    background-image: url(https://s1.1zoom.me/big0/804/Cats_White_background_494474.jpg);
+    background-image: url(https://images.unsplash.com/photo-1608928586655-36b8e0abf78b?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmxhY2slMjBhbmQlMjB3aGl0ZSUyMGNhdHxlbnwwfHwwfHx8MA%3D%3D);
+
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
@@ -87,4 +88,8 @@ body{
   background-color: #5369f8;
   color: #fff;
   text-decoration: none;
+}
+
+.wel{
+  font-size: 15px;
 }

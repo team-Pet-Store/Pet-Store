@@ -32,6 +32,7 @@ import { OrderComponent } from './components/order/order.component';
 import { ProductsListComponent } from './admin-components/products-list/products-list.component';
 import { UpdateProductComponent } from './admin-components/update-product/update-product.component';
 import { AddProductsComponent } from './admin-components/add-products/add-products.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -61,6 +62,7 @@ export function tokenGetter() {
     OrderComponent,
     UpdateProductComponent,
     AddProductsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

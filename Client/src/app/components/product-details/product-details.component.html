@@ -1,6 +1,6 @@
 <div class="product-details">
   <div class="image-container">
-    <img  [src]="selectedProduct.imageUrl"alt="Product Image" class="product-image" />
+    <img src="{{ selectedProduct.imageUrl }}" alt="Product Image" class="product-image" />
   </div>
   <div class="info">
     <h3 class="product-name">{{ selectedProduct.name }}</h3>
@@ -8,4 +8,3 @@
     <p class="price">${{ selectedProduct.price }}</p>
   </div>
 </div>
- 
