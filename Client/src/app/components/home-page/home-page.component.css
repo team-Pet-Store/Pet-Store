@@ -1,3 +1,11 @@
 h1{
     background-color:#ECECEC;
 }
+.premium {
+    font-size: 24px; /* Adjust the font size to your preference */
+    font-weight: bold; /* Make the text bold */
+    text-transform: uppercase; /* Convert text to uppercase */
+    letter-spacing: 2px; /* Add letter spacing for a title effect */
+    font-family: "Your Preferred Font", sans-serif; /* Specify the font family you prefer */
+    /* Add any additional styles you desire, like text shadow or color */
+  }
