@@ -68,6 +68,7 @@
 }
 
 .form-control-underlined {
+  color: white;
   border-width: 0;
   border-bottom-width: 1px;
   border-radius: 0;
